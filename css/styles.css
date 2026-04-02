@@ -112,7 +112,7 @@ img {
 }
 
 a {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   text-decoration: none;
   transition: color var(--transition);
 }
@@ -130,7 +130,7 @@ ul, ol {
    ------------------------------------------------------------ */
 /* Visible focus ring for keyboard navigation */
 :focus-visible {
-  outline: 3px solid var(--color-secondary);
+  outline: 3px solid var(--color-secondary-dark);
   outline-offset: 3px;
   border-radius: var(--border-radius-sm);
 }
@@ -235,7 +235,7 @@ h6 { font-size: var(--text-lg); }
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   margin-bottom: var(--space-4);
 }
 
@@ -278,7 +278,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .btn:focus-visible {
-  outline: 3px solid var(--color-secondary);
+  outline: 3px solid var(--color-secondary-dark);
   outline-offset: 3px;
 }
 
@@ -309,7 +309,7 @@ h6 { font-size: var(--text-lg); }
 
 .btn--teal {
   /* #1e6b80 on white = 6.05:1 — passes WCAG AA for normal text */
-  background-color: #1e6b80;
+  background-color: #14586f;        /* AAA teal btn (7.89:1 on white) */
   color: var(--color-white);
   border-color: #1e6b80;
 }
@@ -414,6 +414,14 @@ h6 { font-size: var(--text-lg); }
   padding: var(--space-2) var(--space-4);
   border-radius: var(--border-radius-sm);
   transition: background-color var(--transition), color var(--transition);
+}
+
+/* Override: keep btn colours correct inside nav */
+.site-nav .btn {
+  color: var(--color-white);
+}
+.site-nav .btn:hover {
+  color: var(--color-white);
 }
 
 .site-nav a:hover,
@@ -873,7 +881,7 @@ h6 { font-size: var(--text-lg); }
 
 .pricing-card__per-session {
   font-size: var(--text-sm);
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   font-weight: 500;
 }
 
@@ -1988,9 +1996,9 @@ h6 { font-size: var(--text-lg); }
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid var(--color-secondary);
+  border: 2px solid var(--color-secondary-dark);
   background: transparent;
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark);
   font-size: var(--text-xl);
   cursor: pointer;
   transition: background-color var(--transition), color var(--transition), border-color var(--transition);
@@ -1998,12 +2006,12 @@ h6 { font-size: var(--text-lg); }
 }
 
 .testimonial-carousel__btn:hover {
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary-dark);
   color: var(--color-white);
 }
 
 .testimonial-carousel__btn:focus-visible {
-  outline: 3px solid var(--color-secondary);
+  outline: 3px solid var(--color-secondary-dark);
   outline-offset: 3px;
 }
 
@@ -2019,7 +2027,7 @@ h6 { font-size: var(--text-lg); }
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: 2px solid var(--color-secondary);
+  border: 2px solid var(--color-secondary-dark);
   background: transparent;
   cursor: pointer;
   padding: 0;
@@ -2028,11 +2036,11 @@ h6 { font-size: var(--text-lg); }
 
 .testimonial-carousel__dot.is-active,
 .testimonial-carousel__dot:hover {
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary-dark);
   transform: scale(1.2);
 }
 
 .testimonial-carousel__dot:focus-visible {
-  outline: 3px solid var(--color-secondary);
+  outline: 3px solid var(--color-secondary-dark);
   outline-offset: 3px;
 }
