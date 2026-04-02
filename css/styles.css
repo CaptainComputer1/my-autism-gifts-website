@@ -2044,3 +2044,23 @@ h6 { font-size: var(--text-lg); }
   outline: 3px solid var(--color-secondary-dark);
   outline-offset: 3px;
 }
+
+
+/* ===================================================================
+   FORM SUCCESS BANNER
+   =================================================================== */
+
+.form-success-banner {
+  background-color: var(--color-mag-light-teal);
+  border: 2px solid var(--color-secondary-dark);
+  border-radius: var(--border-radius);
+  padding: var(--space-8) var(--space-10);
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.form-success-banner p {
+  color: var(--color-primary);
+  font-size: 1.1rem;
+  margin: 0;
+}

@@ -79,13 +79,22 @@
           </p>
         </div>
 
+                <div id="intake-success" class="form-success-banner" role="alert" aria-live="polite" style="display:none">
+          <p><strong>Thank you!</strong> Rob has received your story and will be in touch within one business day to confirm your free consultation.</p>
+        </div>
+
         <form
           class="intake-form"
-          action="#"
+          name="consultation"
+          action="/consultation.html?sent=true"
           method="post"
-          aria-label="Client intake form"
+          aria-label="Consultation intake form"
+          netlify
+          netlify-honeypot="bot-field"
           novalidate
         >
+          <input type="hidden" name="form-name" value="consultation" />
+          <p style="display:none" aria-hidden="true"><label>Skip this field<input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
           <!-- ── SECTION 1: About You ── -->
           <fieldset class="intake-fieldset">
@@ -469,5 +478,16 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      if (window.location.search.indexOf('sent=true') !== -1) {
+        var banner = document.getElementById('intake-success');
+        if (banner) { banner.style.display = 'block'; }
+        var form = document.querySelector('.intake-form');
+        if (form) { form.style.display = 'none'; }
+        window.scrollTo(0, 0);
+      }
+    }());
+  </script>
 </body>
 </html>
