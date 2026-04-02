@@ -1940,3 +1940,99 @@ h6 { font-size: var(--text-lg); }
   .reassurance-step__arrow { display: none; }
   .reassurance-step { max-width: 100%; }
 }
+
+/* ============================================================
+   TESTIMONIAL CAROUSEL
+   ============================================================ */
+
+.testimonial-carousel {
+  max-width: 780px;
+  margin: var(--space-12) auto 0;
+  text-align: left;
+}
+
+.testimonial-carousel__track-wrapper {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.testimonial-carousel__track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-carousel__track { transition: none; }
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  padding: var(--space-2);
+}
+
+/* Nav row */
+.testimonial-carousel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+/* Prev / Next buttons */
+.testimonial-carousel__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--color-secondary);
+  background: transparent;
+  color: var(--color-secondary);
+  font-size: var(--text-xl);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+  flex-shrink: 0;
+}
+
+.testimonial-carousel__btn:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.testimonial-carousel__btn:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* Dot indicators */
+.testimonial-carousel__dots {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial-carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-secondary);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.testimonial-carousel__dot.is-active,
+.testimonial-carousel__dot:hover {
+  background-color: var(--color-secondary);
+  transform: scale(1.2);
+}
+
+.testimonial-carousel__dot:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
