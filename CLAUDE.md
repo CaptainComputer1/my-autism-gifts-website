@@ -57,7 +57,7 @@ MAG Website Dev/
 
 ## Image Assets (all from WordPress uploads)
 
-All images currently load directly from the live WordPress site. If the WordPress site goes offline, run `scripts/download-images.sh` (to be written) or manually download.
+All images currently load directly from the live WordPress site. Since we're transitioning away from WordPress, run `scripts/download-images.sh` (to be written) or manually download.
 
 | Purpose | URL |
 |---------|-----|
@@ -66,7 +66,7 @@ All images currently load directly from the live WordPress site. If the WordPres
 | Rob — Welcome (index) | `https://myautismgifts.com/wp-content/uploads/2026/03/Chin-in-Hand-v2-Transparent-2.png` |
 | Rob — About page | `https://myautismgifts.com/wp-content/uploads/2026/03/Black-Suit-Jacket-v2-without-wash-out-or-BG.png` |
 | Rob — Services consult | `https://myautismgifts.com/wp-content/uploads/2026/03/Chin-in-Hand-v2-Transparent-2.png` |
-| Rob — Connect consult | `https://myautismgifts.com/wp-content/uploads/2026/03/Chin-in-Hand-v2-Transparent.png` |
+| Rob — Connect consult | `https://myautismgifts.com/wp-content/uploads/2026/03/Chin-in-Hand-v2-Transparent-2.png` |
 | Old logo (backup) | `https://myautismgifts.com/wp-content/uploads/2024/02/MAG-Logo.jpeg` |
 
 ---
@@ -79,7 +79,7 @@ All pages use `.primary-nav` + `id="primary-nav"` + `aria-controls="primary-nav"
 
 ## Accessibility Standards
 
-- WCAG AA minimum on all text/background combinations
+- WCAG AAA minimum on all text/background combinations
 - `btn--teal` uses `#1e6b80` (not `--color-secondary`) for 6:1 white contrast
 - `btn--outline-white` for ghost buttons on dark hero/banner backgrounds
 - All `<img>` elements need descriptive `alt` text (see alt text guide in MAG_Copy_Drafts.md)
@@ -99,8 +99,7 @@ All pages use `.primary-nav` + `id="primary-nav"` + `aria-controls="primary-nav"
 | Refund/no-show policy | Rob to decide details before publishing to services page |
 | DMARC upgrade (DNS) | Manual — Sean to edit `_dmarc` TXT record in IONOS dashboard |
 | WordPress uqokxuwa account | Sean to check wp-admin/users.php manually |
-| Netlify ↔ GitHub connection | Sean to connect via Netlify dashboard or Claude via Netlify MCP |
-| Image download script | Images still load from live WP URLs — download if WP site goes offline |
+| Image download script | Images still load from live WP URLs — download from WP since we won't use it anymore |
 
 ---
 

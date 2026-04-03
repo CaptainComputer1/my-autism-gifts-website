@@ -25,7 +25,7 @@ A clean, accessible static website for **My Autism Gifts**, the autism and neuro
 
 - **Pure HTML5 + CSS3 + vanilla JS** — no framework, no build step
 - **Google Fonts:** Vidaloka (headings), Roboto (body)
-- **WCAG AA** accessibility throughout
+- **WCAG AAA** accessibility throughout
 - **Hosted:** Netlify (auto-deploy from `main` branch)
 
 ---
@@ -56,7 +56,7 @@ git push
 
 ## Accessibility
 
-- WCAG AA colour contrast on all text/interactive elements
+- WCAG AAA colour contrast on all text/interactive elements
 - Skip-to-main-content link on every page
 - All images have descriptive `alt` text
 - Keyboard-navigable with visible focus rings
