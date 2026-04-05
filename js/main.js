@@ -110,8 +110,6 @@
 
   forms.forEach(function (form) {
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // remove when a real form endpoint is wired up
-
       var firstInvalid = null;
 
       form.querySelectorAll('[required]').forEach(function (field) {
@@ -147,19 +145,15 @@
       });
 
       if (firstInvalid) {
+        // Only block submission when there are validation errors
+        e.preventDefault();
         firstInvalid.focus();
         return;
       }
 
-      // ── Placeholder success state ──────────────────────────────────────
-      // Replace this block with real form submission (e.g. fetch to Netlify Forms,
-      // Formspree, or a WP REST endpoint) when the backend is ready.
-      var submitBtn = form.querySelector('[type="submit"]');
-      if (submitBtn) {
-        submitBtn.textContent = '✓ Message sent — Rob will be in touch soon!';
-        submitBtn.disabled    = true;
-        submitBtn.classList.add('btn--success');
-      }
+      // Validation passed — let the form submit naturally to Netlify.
+      // Netlify handles the POST and redirects to the action URL (?sent=true),
+      // where the inline script on each page shows the success banner.
     });
 
     // Clear error state on input

@@ -30,8 +30,9 @@
   /* Derived */
   --color-primary-dark:     #1a2638;   /* Darker navy for hover states */
   --color-accent-dark:      #372d4d;   /* Darker purple for hover states */
+  --color-secondary-dark:   #14586f;   /* Dark teal — AAA on white (7.91:1) */
   --color-border:           #d4d9e8;   /* Subtle border */
-  --color-muted:            #5a6278;   /* Muted text */
+  --color-muted:            #404654;   /* Muted text — AAA on all site backgrounds (9.45:1 on white) */
 
   /* — Typography — */
   --font-heading: 'Vidaloka', Georgia, serif;
@@ -1123,7 +1124,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .form-label .required {
-  color: #c0392b;
+  color: #a52714;
   margin-left: var(--space-1);
   font-size: var(--text-xs);
 }
@@ -1561,7 +1562,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .contact-card__detail a {
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark); /* AAA: 7.91:1 on white */
 }
 
 .contact-card__detail a:hover {
@@ -1685,7 +1686,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .required-mark {
-  color: #c0392b;
+  color: #a52714;
   margin-left: var(--space-1);
   font-size: var(--text-sm);
 }
@@ -1729,12 +1730,12 @@ h6 { font-size: var(--text-lg); }
 
 .form-input.field-error,
 .form-textarea.field-error {
-  border-color: #c0392b;
+  border-color: #a52714;
 }
 
 .field-error-msg {
   font-size: var(--text-sm);
-  color: #c0392b;
+  color: #a52714;
   margin-top: var(--space-1);
 }
 
@@ -1939,7 +1940,7 @@ h6 { font-size: var(--text-lg); }
 
 .reassurance-step__arrow {
   font-size: var(--text-3xl);
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark); /* AAA: 7.91:1 on white */
   align-self: center;
   padding-top: var(--space-4);
 }

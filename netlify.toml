@@ -7,12 +7,29 @@
   # This lets the repo stay organised in subfolders while all asset
   # paths in the HTML (e.g. css/styles.css, images/MAG Logo.png)
   # resolve correctly at runtime.
-  command = "mkdir -p dist && cp webpages/*.html dist/ && cp -r css dist/ && cp -r images dist/ && cp -r js dist/"
+  command = "mkdir -p dist && cp webpages/*.html dist/ && cp -r css dist/ && cp -r images dist/ && cp -r js dist/ && cp public/* dist/"
   publish = "dist"
 
 [[headers]]
   for = "/*"
   [headers.values]
+    # Prevent clickjacking
     X-Frame-Options = "DENY"
+
+    # Prevent MIME-type sniffing
     X-Content-Type-Options = "nosniff"
+
+    # Limit referrer information to same-origin
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # HSTS: enforce HTTPS for 1 year, include subdomains
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+    # Content Security Policy
+    # Allows: same-origin HTML/CSS/JS, Google Fonts, Netlify Forms endpoint,
+    #         Calendly embeds (for booking buttons), inline styles (needed for
+    #         hero pattern SVG data URI), and form-action to Netlify.
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src https://calendly.com; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
+    # Permissions Policy: disable features the site does not use
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=(), ambient-light-sensor=(), autoplay=()"
