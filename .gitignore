@@ -17,3 +17,6 @@ npm-debug.log*
 *.tmp
 *.bak
 *.swp
+
+# Netlify build output (assembled by build command, not stored in repo)
+dist/

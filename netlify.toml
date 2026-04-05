@@ -1,5 +1,14 @@
 [build]
-  publish = "./webpages"
+  # Assembles a clean dist/ folder that Netlify serves:
+  #   - HTML pages from webpages/  →  dist/*.html  (root of site)
+  #   - CSS from css/              →  dist/css/
+  #   - Images from images/        →  dist/images/
+  #   - JS from js/                →  dist/js/
+  # This lets the repo stay organised in subfolders while all asset
+  # paths in the HTML (e.g. css/styles.css, images/MAG Logo.png)
+  # resolve correctly at runtime.
+  command = "mkdir -p dist && cp webpages/*.html dist/ && cp -r css dist/ && cp -r images dist/ && cp -r js dist/"
+  publish = "dist"
 
 [[headers]]
   for = "/*"
