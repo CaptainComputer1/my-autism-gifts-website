@@ -945,7 +945,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .footer-brand__logo {
-  height: 48px;
+  height: auto;
   width: auto;
   margin-bottom: var(--space-5);
 }
