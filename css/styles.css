@@ -945,8 +945,9 @@ h6 { font-size: var(--text-lg); }
 }
 
 .footer-brand__logo {
-  height: 231px;
-  width: 231px;
+  width: 100%;
+  max-width: 231px;
+  height: auto;
   margin-bottom: var(--space-5);
 }
 
@@ -1263,6 +1264,23 @@ h6 { font-size: var(--text-lg); }
 .primary-nav a[aria-current="page"] {
   background-color: var(--color-mag-light-purple);
   color: var(--color-primary);
+}
+
+/* Preserve button styling inside nav — prevent .primary-nav a from overriding */
+.primary-nav .btn.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+.primary-nav .btn.btn--primary:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: var(--color-white);
+}
+.primary-nav .btn.btn--primary[aria-current="page"] {
+  background-color: var(--color-mag-light-purple);
+  color: var(--color-primary);
+  border-color: var(--color-mag-light-purple);
 }
 
 /* Alias: .nav-toggle__bar = .nav-toggle span */

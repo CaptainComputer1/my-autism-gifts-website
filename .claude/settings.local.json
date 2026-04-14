@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "mcp__7ea6d0ff-24c0-484c-aa68-b89219d54c8c__save_issue",
+      "mcp__7ea6d0ff-24c0-484c-aa68-b89219d54c8c__list_issue_statuses",
+      "mcp__7ea6d0ff-24c0-484c-aa68-b89219d54c8c__get_issue"
+    ]
+  }
+}
