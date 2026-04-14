@@ -24,27 +24,6 @@ These items are either losing active bookings right now, or exposing the site to
 
 ---
 
-### 1. Fix Every Broken CTA Link 🔴 CRITICAL
-
-- [X] **The Problem:** Every call-to-action button — "Connect With Me," "Book an Appointment," "Let's Get Started," "Schedule Free Consultation" — links to the staging domain `myautismgifts.live-website.com` instead of the live site. The footer contact email is also broken. A visitor who wants to book literally cannot complete the action. Be more inviting.
-
-- [X] Use AI to scan every page and identify every instance of the staging domain URL, then replace all with the correct live domain
-- [X] Change "Book an Appointment" button text to "Enroll Now" across all instances site-wide
-- [X] Be cautious throughout this process — do not click unknown links or expose credentials while investigating
-- [X] Test every changed link in a safe, controlled way before publishing to protect the site from being compromised
-- [X] Fix the footer contact email link to info@myautismgifts.com
-- [X] Verify all CTAs load correct page after the fix
-  - [X] "Connect With Me"
-  - [X] "Book an Appointment" (now "Enroll Now")
-  - [X] "Let's Get Started" (now "See what we have to offer")
-  - [X] "Schedule Free Consultation" (which leads to "Client Intake Form")
-    - [ ] **Use Claude to rewrite the Client Intake Form** to be more inviting and less clinical/dry — the current form is overly formal and visitors are likely to abandon it (confirmed Meeting 6, March 21)
-    - [ ] Client Intake Form shouldn't have more than 3 fonts. Have AI scan and audit it.
-
-> **Estimated fix time:** 30–60 minutes. This single issue is responsible for a near-zero booking rate regardless of how many people visit.
-
----
-
 ### 2. Update All WordPress Plugins Including Elementor Pro 🔴 CRITICAL ⚠️ ACTIVE XSS VULNERABILITY
 
 - [ ] **The Problem:** WordPress plugins are out of date. **⚠️ IONOS SiteLock scan (March 28, 2026) confirmed Elementor Pro 3.27.4 has an actively exploitable HIGH severity Stored XSS vulnerability** (Elementor Pro ≤ 3.29.0, CVE: Authenticated Contributor+ XSS via `button_text` parameter). Updating Elementor Pro is a security emergency — not just maintenance. Target: 3.29.1 minimum, or latest stable (3.35.9 as of March 2026). Other plugins are also out of date.
@@ -113,7 +92,7 @@ These items are either losing active bookings right now, or exposing the site to
 > ⚠️ **Important clarification (Meeting 3 & 4):** The assessment, Kit email opt-in, and nurture sequence shown during Meeting 3 belong to **RTU (Retail Therapy Unplugged)** — Sean demonstrated RTU's system as an example of what MAG should build. MAG does **not** currently have any of these. Everything in this item needs to be built from scratch for MAG.
 
 - [X] Make new Kit account and connect Kit MCP server to Claude for MAG site
-- [x] Check whether Ionos includes lead magnet and email opt-in functionality — if yes, use it and do not pay for additional services
+- [ ] Check whether Ionos includes lead magnet and email opt-in functionality — if yes, use it and do not pay for additional services
   - [ ] Assess whether Kit Free or Creator ($33/mo) plan, or IONOS Email Marketing Plus ($5/month) plan is better for desired MAG email functionality.
 - [ ] If Ionos does not cover it, approach Ionos directly: ask firmly but professionally for a tailor-made offer for only the needed features, without upsells
 - [ ] Deliver the free lead magnet through Rob's existing The Great Discovery (TGD) account
@@ -174,7 +153,7 @@ These items are either losing active bookings right now, or exposing the site to
 - [ ] ALWAYS call Elizabeth and then IONOS before changing admins.
 
 **Install and Run Initial Scan:**
-- [X] Run first scan: Wordfence → Scan → "Start New Scan" — 
+- [X] Run first scan: Wordfence → Scan → "Start New Scan"
 - [ ] Review all Critical/High findings; use "View Differences" on flagged files; use "Repair File" to restore clean versions of modified core/plugin files
 
 **Two-Factor Authentication (2FA):**
@@ -324,14 +303,14 @@ These items are either losing active bookings right now, or exposing the site to
 
 ---
 
-### 7. Find cheaper, better alternative to $30/month IONOS rankingCoach Advanced for MAG SEO 🔴 CRITICAL
+### 8. Find cheaper, better alternative to $30/month IONOS rankingCoach Advanced for MAG SEO 🔴 CRITICAL
 
 > 📊 **Research completed March 30, 2026** — See full analysis below.
 
 **Decision: Cancel rankingCoach Advanced. Replace with Rank Math Free + Google Search Console (total: $0/month). Saves $360/year.**
 
 **Why rankingCoach is overpriced for MAG:**
-> rankingCoach Advanced provides only 25 tracked keywords, 5 competitors, and surface-level SEO task lists. Consumer reviews average 2.5/5 on Sitejabber, with frequent complaints about auto-renewal traps and generic advice. The IONOS contract requires cancellation before the renewal date or it auto-renews for another 12 months.
+> rankingCoach Advanced provides only 25 tracked keywords, 5 competitors, and surface-level SEO task lists. Consumer reviews average 2.5/5 on Sitejabber, with frequent complaints about auto-renewal traps and generic advice. The IONOS contract requires cancellation before the renewal date or it auto-renews for another month.
 
 **Recommended replacement stack:**
 
@@ -367,20 +346,20 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 
 ---
 
-### 8. Configure MAG Email Addresses — Test, Forward, and Keep Copy 🟡 HIGH
+### 9. Configure MAG Email Addresses — Test, Forward, and Keep Copy 🟡 HIGH
 
 - [ ] **The Problem:** Both `info@myautismgifts.com` and `rob@myautismgifts.com` need to be tested against their corresponding site page buttons, confirmed as active, configured to forward all incoming mail to `myautismgifts@gmail.com`, AND set to retain a copy on the IONOS server simultaneously. Elizabeth has confirmed that IONOS supports this "keep copy + forward" setting.
 
 > 📋 **For complete step-by-step instructions see the Email Configuration Guide in Claude Project Meta.**
 
-**8a. Verify Both IONOS Mailboxes Are Active:**
+**9a. Verify Both IONOS Mailboxes Are Active:**
 - [X] Log in to IONOS Control Panel (my.ionos.com) → Email & Office → confirm both `info@myautismgifts.com` and `rob@myautismgifts.com` are active mailboxes (not forwarding-only)
-- [ ] Receive mailbox password from Rob for `info@myautismgifts.com`
+- [ ] Receive mailbox password from Rob for `info@myautismgifts.com` at Bitwarden
 - [ ] Send an inbound test to each address from a completely external account; log in to IONOS webmail (mail.ionos.com) with each address's credentials to confirm receipt
 - [ ] Send an outbound test from IONOS webmail for each address; confirm it arrives externally
 - [X] Confirm the footer contact email link points to the correct address (see Item 1)
 
-**8b. Configure "Keep Copy + Forward" via IONOS Webmail (NOT Control Panel):**
+**9b. Configure "Keep Copy + Forward" via IONOS Webmail (NOT Control Panel):**
 > ⚠️ **Use the Webmail Auto Forward method — NOT the Control Panel.** Only the Webmail method has an explicit "Keep a copy" checkbox. Control Panel forwarding does NOT reliably retain copies.
 
 - [X] IONOS Control Panel forwarding from both IONOS addresses to myautismgifts@gmail.com was set up — **however, this may not retain copies.** Verify and redo via Webmail method below for both addresses.
@@ -390,12 +369,12 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 - [ ] Send test email to each address; confirm: (1) arrives in `myautismgifts@gmail.com` AND (2) a copy remains in IONOS webmail inbox — wait 24 hours, then recheck IONOS to confirm the copy was not auto-deleted
 - [X] Ensure the footer contact email link (fixed in Item 1) points to info@myautismgifts.com
 
-**8c. Gmail — Prevent Forwarded Emails from Going to Spam:**
+**9c. Gmail — Prevent Forwarded Emails from Going to Spam:**
 - [X] In Gmail: Settings (⚙️) → Search options → "To:" field: `info@myautismgifts.com` → Create filter → check "Never send it to Spam" ✅ + "Categorize as: Primary" ✅ → Create filter
 - [X] Repeat for `rob@myautismgifts.com`
 - [X] Check Gmail Spam folder during first 1–2 weeks; manually mark any legitimate forwarded mail as "Not spam"
 
-**8d. Gmail "Send Mail As" Aliases (reply from info@ and rob@ inside Gmail):**
+**9d. Gmail "Send Mail As" Aliases (reply from info@ and rob@ inside Gmail):**
 - [ ] Gmail → Settings → Accounts and Import → "Send mail as" → "Add another email address"
   - Name: `My Autism Gifts` | Email: `info@myautismgifts.com` | ✅ Treat as alias
   - SMTP Server: `smtp.ionos.com` | Port: `465` | SSL | Username: `info@myautismgifts.com` | Password: IONOS mailbox password
@@ -403,7 +382,7 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 - [ ] Repeat for `rob@myautismgifts.com` (same SMTP settings, rob@'s mailbox password)
 - [ ] Settings → Accounts and Import → set `info@myautismgifts.com` as default → select **"Reply from the same address the message was sent to"**
 
-**8e. WordPress Email (WP Mail SMTP):**
+**9e. WordPress Email (WP Mail SMTP):**
 - [X] WP Mail SMTP plugin configured: FROM = `info@myautismgifts.com`, SMTP Host = `smtp.ionos.com`, Port 465, SSL, authenticated with info@'s IONOS mailbox password
   > ℹ️ **rob@myautismgifts.com does NOT need WP Mail SMTP setup.** This plugin handles WordPress outgoing system mail only (form submissions, admin notifications). IONOS requires the FROM address to be @myautismgifts.com — Gmail FROM addresses are rejected since Jan 2024. Rob replying from rob@ is handled via the Gmail "Send mail as" alias above (Step 8d), not through WordPress.
 - [X] **Test WP Mail SMTP:** WordPress admin → WP Mail SMTP → Tools → Email Test → send to `myautismgifts@gmail.com` → confirm receipt
@@ -411,20 +390,20 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 - [ ] Update WordPress admin email if needed: Settings → General → Administration Email Address → change to `myautismgifts@gmail.com` → confirm via verification email (need help logging into WP site from mag@gmail Chrome profile browser first)
 - [ ] Verify contact form notifications are going to the correct recipient and using the IONOS SMTP sending path
 
-**8f. Email DNS Records (SPF, DKIM, DMARC):**
+**9f. Email DNS Records (SPF, DKIM, DMARC):**
 - [X] SPF record added to IONOS DNS: `v=spf1 include:_spf.perfora.net include:_spf.kundenserver.de ~all`
 - [X] **Upgrade SPF from soft fail to hard fail:** change `~all` to `-all` in the IONOS DNS TXT record — currently flagged as WARNING by GroundedScan; soft fail means spoofed emails are flagged but not rejected. Only do this after confirming all legitimate sending sources are included in the SPF record.
 - [X] DKIM CNAME records added to IONOS DNS (3 records: s1-ionos._domainkey, s2-ionos._domainkey, s42582890._domainkey)
 - [X] DMARC record added to IONOS DNS: `v=DMARC1;p=none;rua=mailto:myautismgifts@gmail.com`
 - [ ] **Upgrade DMARC from monitoring-only to enforcement:** after 2–4 weeks of monitoring and Kit email reputation building, change `p=none` to `p=quarantine` (moves spoofed emails to spam) — flagged as WARNING by GroundedScan; `p=none` blocks nothing. Eventually upgrade to `p=reject` once deliverability is confirmed stable.
 
-**8g. Spam Filtering:**
+**9g. Spam Filtering:**
 - [X] Add Gmail "Never send to Spam" filters (Step 8c above covers this for forwarded mail)
-- [ ] In IONOS webmail (OX App Suite) → Settings → Mail → Rules: create rules to move obvious spam to Junk folder for each mailbox
+- [ ] In IONOS webmail (OX App Suite) → Settings → Mail → Rules: create rules to move obvious spam (like from passport-to-paradise@mail.beehiiv.com) to Junk folder for each mailbox
 
 ---
 
-### 9. Rewrite the Hero Headline 🟡 HIGH
+### 10. Rewrite the Hero Headline 🟡 HIGH
 
 - [ ] **The Problem:** Current headline — "Embrace Your Diversity Unleash Your Brilliance, Achieve Boldly" — fails the 5-second clarity test. Missing punctuation adds confusion. Visitors cannot immediately tell what Rob does, who it's for, or what outcome to expect.
 
@@ -440,11 +419,11 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 
 ---
 
-### 10. Rob's Personal Story as the Central Trust Signal 🟡 HIGH
+### 11. Rob's Personal Story as the Central Trust Signal 🟡 HIGH
 
 - [ ] **The Problem:** Rob's lived experience as a neurodivergent adult — growing from a shy, nonverbal introvert to a confident speaker, homeowner, and employed professional with 41 years of lived experience — is buried in a single paragraph. This is the site's #1 differentiator.
 
-- [X] Have his headline be "Transforming Challenges Into Opportunities"
+- [ ] Have his headline be "Transforming Challenges Into Opportunities"
 - [ ] Move Rob's story to a prominent position in the homepage hero section
 - [X] Feature it at the top of the About page
 - [X] Connect the story to the adult audience: "I've been where you are. Here's what's possible."
@@ -454,7 +433,7 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 
 ---
 
-### 11. Testimonials: Remove Zak's, Add Neurodivergent-Specific, Use Carousel 🟡 HIGH
+### 12. Testimonials: Remove Zak's, Add Neurodivergent-Specific, Use Carousel 🟡 HIGH
 
 - [ ] **The Problem:** Only 1 of the 8 current testimonials explicitly mentions autism. Generic coaching endorsements do not resonate with the target adult audience.
 
@@ -470,7 +449,7 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 
 ---
 
-### 12. Segment Homepage for Two Adult Audiences 🟡 HIGH
+### 13. Segment Homepage for Two Adult Audiences 🟡 HIGH
 > ✅ **MERGED INTO TASK 3** (MAG-2026-011 consolidation) — all work and billing for homepage segmentation is now tracked under Task 3. This section kept for reference only.: (1) neurodivergent adults seeking independence and life skills, and (2) any adult wanting to develop life skills such as budgeting, communication, or career growth. Neither audience feels fully guided.
 
 - [ ] Create a clear two-path section on the homepage that lets visitors self-identify and reach relevant content
@@ -482,7 +461,7 @@ Complete these alongside the critical fixes — all must be done by March 31, 20
 
 ---
 
-### 13. Restore Scheduling Tool 🟡 HIGH
+### 14. Restore Scheduling Tool 🟡 HIGH
 
 > **Status:** 🔴 To Do
 > **Updated:** March 31, 2026
@@ -595,7 +574,7 @@ For each event type, configure:
 
 ---
 
-### 14. Apply New MAG Logo with Animation and Brand Colors Throughout 🟡 HIGH
+### 15. Apply New MAG Logo with Animation and Brand Colors Throughout 🟡 HIGH
 
 - [ ] **The Problem:** The updated butterfly MAG logo is not yet applied to the live site header with animation, and brand colors are not consistently applied across all pages.
 
@@ -616,23 +595,23 @@ For each event type, configure:
 
 ---
 
-### 15. Remove Empty White Blocks + Improve Site Backgrounds and Header Styling 🟡 HIGH
+### 16. Remove Empty White Blocks + Improve Site Backgrounds and Header Styling 🟡 HIGH
 
 - [ ] **The Problem:** The current site backgrounds are disjointed and excessively white. There are empty white blocks that add no value. The header needs specific brand styling.
 
-**14a. Remove empty white blocks and draft pages:**
+**16a. Remove empty white blocks and draft pages:**
 - [ ] Find and remove all empty or placeholder blocks that don't contribute to the site (use Elementor Navigator Ctrl+I)
 - [X] Delete the empty Video widget or fix its missing URL — this is causing the large white block on the page
 - [X] Identify and remove any draft or incomplete pages that aren't yet ready for visitors and don't serve a current purpose
 
-**14b. Improve backgrounds, brand colors, and header styling:**
+**16b. Improve backgrounds, brand colors, and header styling:**
 - [X] Make the site header background the same purple as the MAG logo
 - [X] Add purple hover rectangles behind all header navigation menu items on hover
 - [X] Apply cohesive background colors or subtle textures using the brand palette to all page sections
 - [X] Reduce harsh white-on-white section breaks and ensure visual flow from one section to the next
-- [ ] Correct formatting and site title sizes on all screen sizes (phone, tablet, PC, Mac) using Elementor breakpoints — do not test on every physical device (not cost-effective); breakpoints cover this
+- [ ] Correct formatting and site title sizes on all screen sizes (phone, tablet, PC, Mac) using CSS breakpoints — do not test on every physical device (not cost-effective); breakpoints cover this
 - [ ] **Accessibility requirements for backgrounds:**
-  - [X] All background/foreground color combinations must meet WCAG AA contrast (minimum 4.5:1 for body text)
+  - [ ] All background/foreground color combinations must meet WCAG AAA contrast (minimum 7:1 for body text)
   - [X] Target WCAG AAA (7:1) for primary text throughout the site
   - [ ] Never rely on color alone to communicate meaning — pair color with text or iconography
   - [ ] Avoid patterns or textures that could trigger visual discomfort or photosensitivity issues
@@ -640,24 +619,24 @@ For each event type, configure:
 
 ---
 
-### 16. Replace Images with AI-Enhanced Versions 🟡 HIGH
+### 17. Replace Images with AI-Enhanced Versions 🟡 HIGH
 
-- [ ] **The Problem:** All current images, including Rob's profile photo, need to be replaced with cleaner, AI-enhanced versions. The hero image is a WhatsApp-exported photograph.
+- [X] **The Problem:** All current images, including Rob's profile photo, need to be replaced with cleaner, AI-enhanced versions. The hero image is a WhatsApp-exported photograph.
 
 - [X] Use AI enhancement tools to improve all site photos (smooth, sharpen, enhance)
 - [X] On the About Us page: remove background from Rob's photo and address the washed-out quality (doorknob visible on shoulder), as well as for other photos of Rob
 - [ ] Apply the same approach to all testimonial photos and hero imagery
 - [ ] Request additional images from Rob via Google Drive if more are needed for any section
 - [ ] **Accessibility requirements for images:**
-  - [ ] Write descriptive alt text for every meaningful image on the site
+  - [X] Write descriptive alt text for every meaningful image on the site
   - [ ] Use empty alt text (`alt=""`) for purely decorative images so screen readers skip them
-  - [ ] Ensure all text overlaid on images meets minimum 4.5:1 contrast ratio
+  - [ ] Ensure all text overlaid on images meets minimum 7:1 contrast ratio
   - [ ] Avoid using images of text — use real HTML text instead
   - [ ] Provide captions or transcripts for any video content added to the tips library
 
 ---
 
-### 17. Update Site Footer 🟡 HIGH
+### 18. Update Site Footer 🟡 HIGH
 
 - [X] Update footer copyright text to read: **© 2026 My Autism Gifts. Designed and Powered by Sean Lawrence**
 - [X] Replace the footer logo with the current butterfly MAG logo
@@ -668,7 +647,7 @@ For each event type, configure:
 
 ---
 
-### 18. Rob's Credentials as Accomplishments 🟡 HIGH
+### 19. Rob's Credentials as Accomplishments 🟡 HIGH
 
 - [ ] **The Problem:** Rob's credentials are not about formal certifications — they are the real outcomes he has achieved and the real people he has helped. These should be displayed as powerful social proof, not hidden in body copy.
 
@@ -679,7 +658,7 @@ For each event type, configure:
 
 ---
 
-### 19. Refund and No-Show Policy 🟡 HIGH
+### 20. Refund and No-Show Policy 🟡 HIGH
 
 - [ ] **The Problem:** There is no clearly published policy for refunds or no-shows. This creates ambiguity for clients and potential disputes for Rob.
 
@@ -690,7 +669,7 @@ For each event type, configure:
 
 ---
 
-### 20. Revise Services Page and Evaluate Packages Page 🟡 HIGH
+### 21. Revise Services Page and Evaluate Packages Page 🟡 HIGH
 
 - [ ] **The Problem:** The Services page needs updated copy and corrected button links for the live site. A separate "Packages" page exists that may be redundant — this needs to be evaluated and resolved before launch.
 
@@ -706,7 +685,7 @@ For each event type, configure:
 
 ---
 
-### 21. Social Media Links — Post External Links to Site 🟡 HIGH
+### 22. Social Media Links — Post External Links to Site 🟡 HIGH
 
 > 💼 **BILLABLE** — Placing external links (TGD link, any other links from the shared Google Drive) on the website is billable time per contract Section 4.1: *"Any external links to be posted on the website will be placed in the shared Google Drive and discussed for time compensation."* LinkedIn/Clubhouse posting is Rob's own responsibility at no charge to Sean.
 
@@ -738,7 +717,7 @@ These items improve long-term growth and performance but can follow after the cr
 
 ---
 
-### 22. Restructure Pricing with Value Framing 🟢 STRATEGIC
+### 23. Restructure Pricing with Value Framing 🟢 STRATEGIC
 
 - [ ] **The Problem:** Current pricing ($75/session → $40/session VIP) is well below the market benchmark of $145–$225/hour for specialized autism coaching. The pricing is also presented as a plain list without value framing, comparison, or objection-handling.
 
@@ -752,7 +731,7 @@ These items improve long-term growth and performance but can follow after the cr
 
 ---
 
-### 23. General Website Maintenance & Content Updates 🟢 ONGOING
+### 24. General Website Maintenance & Content Updates 🟢 ONGOING
 
 - [ ] After the initial project scope is complete, all ongoing maintenance, updates, and content additions will be handled as directed by Rob
 - [ ] Before beginning any maintenance work, Sean will submit an itemized list of tasks, estimated time, and cost to Rob for written approval
@@ -768,7 +747,7 @@ These items may be helpful later but can follow after the initial launch of the 
 
 ---
 
-### 24. Build Pre-Templated Pages for Different Events 🟢 LOW
+### 25. Build Pre-Templated Pages for Different Events 🟢 LOW
 
 - [ ] Build reusable Elementor page templates for specific events and occasions (this is one reason Rob should purchase the Advanced Elementor plan at $99/yr — it covers 3 sites, allowing pre-templated event landing pages that stay unpublished until needed)
 - [ ] Build these incrementally as Rob's event calendar develops
@@ -776,7 +755,7 @@ These items may be helpful later but can follow after the initial launch of the 
 
 ---
 
-### 25. EQ3C Framework — On Hold Pending Shane's Approval 🚫
+### 26. EQ3C Framework — On Hold Pending Shane's Approval 🚫
 
 > 🚫 **Do NOT incorporate the EQ3C Goal Achievement Framework into any website content without first getting explicit written approval from Shane.** This was flagged by Elizabeth in Meeting 6 (March 21) — EQ3C is Rob's proprietary methodology and incorporating it into the site requires Shane's sign-off. This item is on hold until that approval is obtained.
 
@@ -800,7 +779,7 @@ Tracks the static HTML/CSS/JS site build and WordPress → Netlify migration per
 
 ---
 
-### 26. Phase 1 — Static Site Build ✅ COMPLETE
+### 27. Phase 1 — Static Site Build ✅ COMPLETE
 
 All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 2026.
 
@@ -824,7 +803,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### 27. Phase 2 — Security Hardening 🟡
+### 28. Phase 2 — Security Hardening 🟡
 
 > **Status:** 🟡 Mostly Complete · Confirmed April 8, 2026 · Remaining items require Netlify/Google/WP dashboard access
 
@@ -846,7 +825,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### 28. Phase 3 — TidyCal Scheduling Setup 🔴
+### 29. Phase 3 — TidyCal Scheduling Setup 🔴
 
 > **Status:** To Do · See also Task 13 (Restore Scheduling Tool) for full implementation detail and pricing comparison
 
@@ -872,7 +851,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### 29. Phase 4 — DMARC Email Security Escalation 🟡
+### 30. Phase 4 — DMARC Email Security Escalation 🟡
 
 > **Status:** 🟡 In Progress · Verified via IONOS MCP April 8, 2026 · DNS correct; monitoring period running; escalation awaiting Rob's approval
 
@@ -893,7 +872,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### 30. Phase 5 — Launch & DNS Cutover 🔴
+### 31. Phase 5 — Launch & DNS Cutover 🔴
 
 > **Status:** To Do · Requires: all Phase 2–4 tasks complete + Rob's pending items from Phase 1 done · Needs IONOS DNS credentials
 
@@ -910,7 +889,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### 31. Optional — Netlify Visual Editor (Change Order Required) 🟢
+### 32. Optional — Netlify Visual Editor (Change Order Required) 🟢
 
 > **Status:** Out of scope unless Rob signs a Change Order · Quoted at $340 (4 hrs × $85/hr) in migration document
 
@@ -923,7 +902,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 32: Research Netlify Plan Costs, Support & Admin Limits 🟡 HIGH
+### Task 33: Research Netlify Plan Costs, Support & Admin Limits 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Rob asked: (1) How much does Netlify cost for 24/7 technical support? (2) How many admin users are allowed on Netlify?
 
 - [ ] Research Netlify Pro/Teams plan pricing and what support tier includes 24/7 access
@@ -934,7 +913,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 33: Store All Project Credentials in Google Drive 🟡 HIGH
+### Task 34: Store All Project Credentials in Bitwarden 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Rob explicitly requested: “Put all the passwords for everything in Google Drive.”
 
 - [ ] Create a secure credentials document in the shared MAG Google Drive folder
@@ -945,7 +924,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 34: Rewrite Hero Story for Emotional Impact & Conversions 🟡 HIGH
+### Task 35: Rewrite Hero Story for Emotional Impact & Conversions 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Rob wants the hero story to be more “racier,” emotionally compelling, and registration-oriented. Goal: make visitors feel “if he went through all that, he can help me.” Sean sent a website copy document Thursday April 3.
 
 - [ ] Review the website copy document Sean sent April 3 (check Google Drive / shared folder)
@@ -958,7 +937,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 35: Research Backup & Security for Netlify Static Site 🟡 HIGH
+### Task 36: Research Backup & Security for Netlify Static Site 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Rob noted these were not listed in Contract v2. Said: “I want the most robust security possible so people can’t take the website down.” Sean to research; may require contract amendment.
 
 - [ ] Document that the GitHub repo IS the backup for a static site (Netlify deploy history + source control)
@@ -970,7 +949,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 36: Create 4 MAG-Branded Zoom Backgrounds 🟢 STRATEGIC
+### Task 37: Create 4 MAG-Branded Zoom Backgrounds 🟢 STRATEGIC
 > **From Meeting 7 (April 8, 2026):** Rob requested 4 custom Zoom backgrounds for coaching calls. Offered $20. Sean said not necessary for payment on a simple one, but Rob wants MAG-branded with logo — $20 is fair.
 > **Billing:** Outside current $375 contract. Confirm with Rob: change order ($20) or goodwill add-on.
 
@@ -983,7 +962,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 37: Coordinate WordPress & Elementor Subscription Cancellations 🟡 HIGH
+### Task 38: Coordinate WordPress & Elementor Subscription Cancellations 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Rob confirmed: getting rid of WordPress and Elementor entirely. Rob thinks Elementor Pro is under Elizabeth’s account. Rob does not think he has a separate WordPress.com subscription. He said: “Coordinate the cancellation with Rob.”
 > ⚠️ Do NOT cancel anything until the Netlify site is fully live and DNS is switched.
 
@@ -996,7 +975,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 38: Resolve Active DNS Transfer Issue (WordPress IP → Netlify IP) 🔴 CRITICAL
+### Task 39: Resolve Active DNS Transfer Issue (WordPress IP → Netlify IP) 🔴 CRITICAL
 > **From Meeting 7 (April 8, 2026):** Rob reported the DNS cutover from WordPress’s IP to Netlify’s IP via IONOS "is having a bit of an issue." Tim Lawrence recommended a **three-way call** with IONOS and Netlify simultaneously to resolve it.
 
 - [ ] Check current A record in IONOS DNS: what IP is myautismgifts.com pointing to right now?
@@ -1009,7 +988,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 39: Update Elementor Pro BEFORE Leaving IONOS 🟡 HIGH
+### Task 40: Update Elementor Pro BEFORE Leaving IONOS 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Elizabeth specifically said: “Before you leave IONOS, you’re going to want to update Elementor Pro so that that’s complete on that side.” Tim also suggested using ChatGPT (free) when Claude can’t solve plugin issues: “when it comes to website stuff, sometimes when all the other ones can’t figure something out, ChatGPT will.”
 
 - [ ] Attempt Elementor Pro update in wp-admin — resolve “Download failed. Unauthorized” (see Task 2 license fix)
@@ -1019,7 +998,7 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 ---
 
-### Task 40: Configure myautismgifts.com Email Sending (Not Just Forwarding) 🟡 HIGH
+### Task 41: Configure myautismgifts.com Email Sending (Not Just Forwarding) 🟡 HIGH
 > **From Meeting 7 (April 8, 2026):** Sean identified that emails to the myautismgifts.com domain (info@ or mag@) are currently only forwarded to myautismgifts@gmail.com — Sean has NOT yet sent FROM a myautismgifts.com address. Tim suggested going to IONOS support. This must be working for DMARC enforcement to be meaningful.
 
 - [ ] Check in IONOS whether a mail account exists for myautismgifts.com (separate from forwarding)
