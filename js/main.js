@@ -190,7 +190,7 @@
   const total    = slides.length;
   let current    = 0;
   let timer      = null;
-  const INTERVAL = 7000;
+  const INTERVAL = 5000;
 
   // Build dot buttons
   slides.forEach(function (_, i) {
@@ -230,6 +230,7 @@
   // Autoplay
   function startTimer() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    stopTimer();  // Prevent timer accumulation from overlapping events
     timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
   }
   function stopTimer() { clearInterval(timer); timer = null; }

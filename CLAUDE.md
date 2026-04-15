@@ -123,12 +123,12 @@ All pages use `.primary-nav` + `id="primary-nav"` + `aria-controls="primary-nav"
 
 | Item | Status |
 |------|--------|
-| Contact/intake form backend | Not wired — needs Netlify Forms or Formspree |
+| Contact/intake form backend | Netlify Forms wired (HTML attributes in place) — needs notification email configured (MY-18) |
 | Real testimonials | Rob to provide real client quotes and photos |
 | Hero headline choice | Rob to choose from Candidates A/B/C in MAG_Copy_Drafts.md |
 | Refund/no-show policy | Rob to decide details before publishing to services page |
 | DMARC upgrade (DNS) | Escalation path: p=none → quarantine → reject as Kit builds sender reputation |
-| **DNS transfer to Netlify** | **⚠️ BLOCKED** — Sean needs GoDaddy login credentials from Rob (Task 38) |
+| **DNS transfer to Netlify** | **⚠️ BLOCKED** — Nameservers are IONOS (not GoDaddy). Need IONOS access to change A record from `74.208.236.205` → `75.2.60.5`. Must configure custom domain in Netlify FIRST. |
 | Elementor update | Rob to run Elementor update in WP admin (Task 39) |
 | Kit email sending config | Rob to configure SPF/DKIM/sending domain in Kit settings (Task 40) |
 | ~~Image download~~ | ✅ **DONE** — all images downloaded and stored locally in `images/` |
@@ -140,28 +140,30 @@ All pages use `.primary-nav` + `id="primary-nav"` + `aria-controls="primary-nav"
 
 1. **Always read this file first** in a new session — don't assume you remember the structure.
 2. **WCAG AAA required** — ≥7:1 contrast on all new color choices. Never introduce a new color without verifying. See verified values in the Accessibility Standards section above.
-3. **Test the local server** with `npx serve .` before editing anything significant.
-7. **Commit after each meaningful change**: `git add . && git commit -m "description"`
-7. **Never edit the live WordPress site** while building this static version — changes will be lost during the transition.
+3. **Local preview workflow** — edit source files in `webpages/`, `css/`, `js/`, `images/`, then run `bash build.sh` to rebuild `dist/`, then `npx serve dist` to preview at `http://localhost:3000`. The `dist/` folder mirrors Netlify's build output so CSS/image paths resolve correctly. **Never use `npx serve .` directly** — relative paths from `webpages/` won't find `css/styles.css`.
+4. **Only push to GitHub when ready for production** — each push triggers a Netlify deploy and costs ~16 credits. Netlify Free Plan has limited credits. Batch commits locally, verify in local preview, push only when a chunk of verified work is ready.
+5. **Commit after each meaningful change**: `git add [specific files] && git commit -m "description"` — commit locally without pushing. Push in batches.
+6. **CTA button language**: Use "Free Clarity Call" (not "Free Consultation" or "Contact"). Per Elizabeth's feedback (April 15, 2026): high-intent language converts better. All CTA buttons linking to consultation.html now use "Book Your Free Clarity Call" or "Schedule Your Free Clarity Call".
 7. **Brand voice**: warm, empowering, strengths-based. No clinical language, no pity framing. See full brand guide in `G:\My Drive\Work\Work with Rob\Claude Project Meta\MAG_Copy_Drafts.md`.
-7. **Rob's decisions pending** — do not publish anything marked "Rob to decide" without his confirmation.
-8. **Update this file at session end** — record completed items, new constraints, and current state of pending items.
+8. **Rob's decisions pending** — do not publish anything marked "Rob to decide" without his confirmation.
+9. **Update this file at session end** — record completed items, new constraints, and current state of pending items.
 
 ---
 
-## Recent Work (April 10, 2026)
+## Recent Work (April 15, 2026)
 
-- All CSS color combinations verified WCAG AAA (≥7:1) — full audit run
-- Footer rgba white text raised from 0.45–0.70 to minimum 0.80–0.82
-- `btn--teal` border updated from `#1e6b80` (AA) to `#14586f` (AAA)
-- Committed to GitHub: `fix: raise footer text opacity for WCAG AAA contrast compliance`
-- Task list v2.5 (40 tasks) reflects Meeting 7 outcomes; Tasks 38–40 added
-- New project documents created in `G:\My Drive\Work\Work with Rob\MAG Documents\` (correct paths):
-  - `Contracts/MAG_Contract_v2.docx` — Contract v3.0 (40 tasks, $375 fixed price)
-  - `Estimates/MAG_Estimate_v2.docx` — Estimate v2.0 ($375 across 5 phases)
-  - `Change Orders/MAG_Change_Order_CO-1.docx` — CO-001: 4 Zoom Backgrounds ($20, approved)
-  - `Reports/MAG_PRD.docx` — Product Requirements Document (Tim Lawrence's recommendation)
-- Linear integration completed: MY-5 through MY-34 now cover all 40 contract tasks + CO-001/CO-002
-  - MY-27: Task 38 DNS Transfer (Urgent), MY-28: Task 39 Elementor Pro (High),
-    MY-29: Task 40 Email Sending (High), MY-30: CO-001 Zoom Backgrounds (Medium)
-  - MY-31–34: Phase 3 Kit setup, email sequences, Phase 4 hero story, copy/credentials
+- **Footer standardized** across all 5 pages: `footer-inner` grid, nav headings, consistent content (commit `a59fc6a`)
+- **CTA buttons renamed** from "Free Consultation" to "Free Clarity Call" per Elizabeth's feedback
+- **Testimonial carousel fix**: prevented timer accumulation causing jumpy 2-second transitions; now 5-second intervals
+- **Header text** ("My Autism Gifts") made visible on all pages (was `sr-only` on 3 pages)
+- **Header button contrast** fixed: `.primary-nav .btn.btn--primary` CSS specificity override added
+- **Footer logo** made responsive: `max-width: 231px; width: 100%; height: auto`
+- **Local preview workflow** established: `bash build.sh` → `npx serve dist` (saves Netlify credits)
+- **Linear task consolidation**: 5 merges saved Rob $180; 5 WP tasks canceled; MY-47 (footer) marked Done
+- **Task mapping spreadsheet** created: `MAG_Linear_Task_Mapping.xlsx` (3 sheets)
+- **DNS research**: Nameservers are IONOS (not GoDaddy). A record change: `74.208.236.205` → `75.2.60.5`. Email records (MX, SPF, DKIM, DMARC) unaffected.
+
+### Previous (April 10, 2026)
+- All CSS color combinations verified WCAG AAA (≥7:1)
+- Footer rgba white text raised to minimum 0.80–0.82
+- Linear integration: MY-5 through MY-63 cover all tasks + CO-001/CO-002
