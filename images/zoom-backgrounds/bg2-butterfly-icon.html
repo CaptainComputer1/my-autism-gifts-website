@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(160deg, #1e2d45 0%, #2A3A56 50%, #352d4a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Large soft glow behind butterfly */
+body::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(83,160,183,0.12) 0%, transparent 70%);
+}
+
+/* Subtle teal accent top-left */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse at top left, rgba(151,231,255,0.06) 0%, transparent 70%);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.butterfly {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 30px;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25), 0 0 80px rgba(200,180,60,0.15);
+}
+
+.text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brand-name {
+  font-size: 56px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.brand-name span {
+  color: #97E7FF;
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #97E7FF, #D2CCFF);
+  border-radius: 2px;
+}
+
+.role {
+  font-size: 24px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.coach-name {
+  font-size: 32px;
+  color: #D2CCFF;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+/* Corner accents */
+.corner-tl, .corner-br {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+}
+.corner-tl {
+  top: 40px;
+  left: 40px;
+  border-top: 2px solid rgba(151,231,255,0.25);
+  border-left: 2px solid rgba(151,231,255,0.25);
+}
+.corner-br {
+  bottom: 40px;
+  right: 40px;
+  border-bottom: 2px solid rgba(210,204,255,0.25);
+  border-right: 2px solid rgba(210,204,255,0.25);
+}
+
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #4A3B63, #53A0B7, #97E7FF);
+}
+</style>
+</head>
+<body>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="content">
+    <img class="butterfly" src="../MAG%20Logo%20Square%20Icon%20without%20BG.png" alt="" />
+    <div class="text-block">
+      <div class="brand-name">My Autism <span>Gifts</span></div>
+      <div class="divider"></div>
+      <div class="role">Chief Empowerment Officer</div>
+      <div class="coach-name">Rob Hodes</div>
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+</body>
+</html>

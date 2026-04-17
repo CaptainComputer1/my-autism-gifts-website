@@ -45,7 +45,26 @@
       "Bash(curl -sIL --max-time 10 http://myautismgifts.com)",
       "Bash(curl -sIL --max-time 10 https://my-autism-gifts.netlify.app)",
       "Bash(nslookup -type=A apex-loadbalancer.netlify.com)",
-      "Bash(curl -sI https://myautismgifts.com --resolve myautismgifts.com:443:75.2.60.5)"
+      "Bash(curl -sI https://myautismgifts.com --resolve myautismgifts.com:443:75.2.60.5)",
+      "Bash(bash build.sh)",
+      "mcp__desktop-commander__read_file",
+      "Bash(pip install:*)",
+      "Bash(pandoc --version)",
+      "Bash(npm install:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"$PATH:/c/Users/seanl/AppData/Local/Pandoc\")",
+      "Bash(pandoc \"G:/My Drive/Work/Work with Rob/MAG Documents/Brand/MAG_Brand_Bible_v1.md\" -o \"G:/My Drive/Work/Work with Rob/MAG Documents/Brand/MAG_Brand_Bible_v1.docx\" --from markdown --to docx)",
+      "Bash(grep -rn \"consultation\" webpages/*.html)",
+      "Bash(grep -rn \"consultation\\\\.html\" webpages/*.html)",
+      "Bash(rm webpages/consultation.html)",
+      "Bash(ls dist/*.html)",
+      "Bash(node -e \"try { require\\('canvas'\\); console.log\\('canvas available'\\); } catch\\(e\\) { console.log\\('need to install'\\); }\")",
+      "Bash(netstat -ano)",
+      "Bash(taskkill //PID 61148 //F)",
+      "WebSearch",
+      "Bash(node render-backgrounds.js)",
+      "mcp__filesystem__read_text_file",
+      "Bash(node render-bg-1-2.js)"
     ]
   }
 }

@@ -813,12 +813,12 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 - [X] Expand netlify.toml: X-Frame-Options = DENY, X-Content-Type-Options = nosniff, Referrer-Policy
 - [X] Create robots.txt — `Allow: /` + sitemap pointer to https://myautismgifts.com/sitemap.xml
 - [X] Create XML sitemap — all 5 pages with canonical URLs, priorities, and lastmod dates
-- [ ] **Verify Netlify free-tier DDoS protection** — confirm in Netlify dashboard (automatic; no extra config needed)
+- [X] **Verify Netlify free-tier DDoS protection** — confirm in Netlify dashboard (automatic; no extra config needed)
 - [ ] **Enable Netlify form spam filters** (Akismet) — Netlify dashboard → Forms → Settings → Spam Filters
 > ⚠️ **Meeting 7 (April 8, 2026) — Netlify WAF:** Rob asked about the Netlify WAF cost and status. Confirmed **enterprise-only, NOT IN SCOPE** for this contract. Sean confirmed WAF should only be enabled after DNS cutover. If Rob wants it later, it requires a change order.
 
 - [ ] **Set up UptimeRobot monitor** — free account at uptimerobot.com; HTTP monitor for https://myautismgifts.com; 5-min interval; email alert to Sean + Rob
-- [ ] **WordPress admin account audit** — wp-admin → Users → All Users; check for "uqokxuwa"; remove if not legitimate *(WP MCP get-users tool has a response format bug — must be done manually)*
+- [X] **WordPress admin account audit** — wp-admin → Users → All Users; check for "uqokxuwa"; remove if not legitimate *(WP MCP get-users tool has a response format bug — must be done manually)*
 - [ ] **Submit sitemap to Google Search Console** — Search Console → Sitemaps → https://myautismgifts.com/sitemap.xml → Submit
 
 > ⚠️ **SPF note (April 8, 2026):** SPF record includes `include:websitewelcome.com` (a GoDaddy/HostGator relay) — likely a leftover from old hosting. Confirm whether still needed; if not, remove to keep SPF clean.

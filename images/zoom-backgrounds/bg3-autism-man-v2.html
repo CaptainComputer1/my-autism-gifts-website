@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(30,25,50,0.85) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(83,160,183,0.10) 0%, transparent 50%),
+    linear-gradient(135deg, #1a2540 0%, #2A3A56 45%, #4A3B63 100%);
+  position: relative;
+}
+
+/* Autism Man — Thanos treatment: desaturated, purple-tinted, ghosted into background */
+.hero-ghost {
+  position: absolute;
+  /*   
+  top: -40px;
+  left: -60px;
+  */
+  height: 900px;
+  width: auto;
+ /*
+  filter:
+    grayscale(100%)
+    brightness(0.5)
+    sepia(0.45)
+    hue-rotate(220deg)
+    saturate(2.2)
+    blur(0.6px);
+  */
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Soft dark vignette over the top-left corner to deepen the Thanos effect */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 15% 25%, rgba(15,10,30,0.55) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Cosmic particles / light scatter along the right */
+.scatter {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1px 1px at 82% 28%, rgba(255,255,255,0.55) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 55%, rgba(210,204,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 72%, rgba(151,231,255,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 91% 40%, rgba(255,255,255,0.35) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 45%, rgba(210,204,255,0.5) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Small persistent butterfly anchor bottom-right */
+.butterfly-anchor {
+  position: absolute;
+  bottom: 55px;
+  right: 65px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 10px rgba(200,180,60,0.35));
+}
+</style>
+</head>
+<body>
+  <img class="hero-ghost" src="../Autism%20Man%20without%20BG.png" alt="" />
+  <div class="vignette"></div>
+  <div class="scatter"></div>
+  <img class="butterfly-anchor" src="../MAG%20Logo%20Square%20Icon%20without%20BG.png" alt="" />
+</body>
+</html>

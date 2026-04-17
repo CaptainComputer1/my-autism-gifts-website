@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background:
+    radial-gradient(ellipse at 75% 20%, rgba(83,160,183,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 85%, rgba(74,59,99,0.30) 0%, transparent 60%),
+    linear-gradient(135deg, #1e2d45 0%, #2A3A56 50%, #3d2f55 100%);
+  position: relative;
+}
+
+/* Faint butterfly watermark top-left */
+.watermark {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  width: 380px;
+  height: 380px;
+  opacity: 0.06;
+}
+
+/* Full MAG logo — positioned just to the left of the vertical tagline */
+.logo {
+  position: absolute;
+  top: 70px;
+  right: 110px;
+  width: 240px;
+  height: 240px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+
+/* Vertical tagline pinned to the very right edge of the screen.
+   Uses `writing-mode: vertical-rl` instead of rotate(90deg) so that
+   `right: 30px` actually anchors the rendered text to the right edge
+   (rotate + center origin placed the rotated text ~80px left of the logo). */
+.tagline {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+</style>
+</head>
+<body>
+  <img class="watermark" src="../MAG%20Logo%20Square%20Icon%20without%20BG.png" alt="" />
+  <img class="logo" src="../MAG%20Logo.png" alt="My Autism Gifts" />
+  <div class="tagline">Dream boldly · Embrace Your Diversity · Unleash Brilliance</div>
+</body>
+</html>
