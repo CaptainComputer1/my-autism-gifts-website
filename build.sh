@@ -9,4 +9,16 @@ cp -r css dist/
 cp -r images dist/
 cp -r js dist/
 cp public/* dist/
+
+# Inject shared header/footer partials into any page that has INCLUDE markers.
+# (Pages without markers are left as-is, so migration from inline headers can
+#  happen one page at a time.)
+if command -v python >/dev/null 2>&1; then
+  python build-partials.py
+elif command -v python3 >/dev/null 2>&1; then
+  python3 build-partials.py
+else
+  echo "⚠ Python not found — skipping partial injection. Install Python to enable."
+fi
+
 echo "dist/ rebuilt — serve with: npx serve dist"

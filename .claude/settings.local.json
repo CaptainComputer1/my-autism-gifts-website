@@ -64,7 +64,14 @@
       "WebSearch",
       "Bash(node render-backgrounds.js)",
       "mcp__filesystem__read_text_file",
-      "Bash(node render-bg-1-2.js)"
+      "Bash(node render-bg-1-2.js)",
+      "Bash(node render-v3.js)",
+      "Bash(node recolor-logo.js)",
+      "Bash(node update-mapping-xlsx.js)",
+      "Bash(npx browser-sync *)",
+      "Bash(npx chokidar *)",
+      "Bash(npx concurrently *)",
+      "Bash(npx serve *)"
     ]
   }
 }

@@ -49,6 +49,7 @@ and Claude will use the Netlify MCP to wire up auto-deploy from the `main` branc
 
 ```powershell
 cd "C:\Users\seanl\Documents\Work\MAG Website Dev"
+bash build.sh
 npx serve .
 ```
 

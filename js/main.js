@@ -3,6 +3,15 @@
  * Mobile navigation toggle + footer year + scroll-behaviour enhancements
  */
 
+/* ─── Mark current nav link (works with injected header/footer partials) ── */
+(function markCurrentNav() {
+  var pathname = window.location.pathname.split('/').pop();
+  var page = pathname.replace(/\.html$/, '') || 'index';
+  document.querySelectorAll('[data-nav="' + page + '"]').forEach(function (a) {
+    a.setAttribute('aria-current', 'page');
+  });
+})();
+
 /* ─── Footer: auto-fill current year ─────────────────────────────────────── */
 (function setFooterYear() {
   const yearSpans = document.querySelectorAll('#footer-year');

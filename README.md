@@ -35,6 +35,7 @@ A clean, accessible static website for **My Autism Gifts**, the autism and neuro
 ## Local Development
 
 ```bash
+bash build.sh
 # Requires Node.js (for the zero-config dev server)
 npx serve .
 # → opens at http://localhost:3000 (or next available port)

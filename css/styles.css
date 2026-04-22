@@ -462,7 +462,7 @@ h6 { font-size: var(--text-lg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav-toggle { display: flex; }
 
   .site-nav {
@@ -805,7 +805,7 @@ h6 { font-size: var(--text-lg); }
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-6);
   margin-top: var(--space-12);
-  align-items: start;
+  align-items: stretch;   /* all cards match the tallest (usually VIP), so buttons align */
 }
 
 .pricing-card {
@@ -903,6 +903,52 @@ h6 { font-size: var(--text-lg); }
 }
 @media (max-width: 560px) {
   .pricing__grid { grid-template-columns: 1fr; }
+}
+
+/* ------------------------------------------------------------
+   VIP PROGRAM PHASES — 3-card responsive grid
+   ------------------------------------------------------------ */
+.program-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.phase-card {
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.phase-card__number {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  color: var(--color-secondary);
+  line-height: 1;
+}
+
+.phase-card__title {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+}
+
+.phase-card__desc {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .program-phases { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .program-phases { grid-template-columns: 1fr; }
 }
 
 /* ------------------------------------------------------------
@@ -1315,7 +1361,11 @@ h6 { font-size: var(--text-lg); }
   box-shadow: var(--shadow-md);
 }
 
-@media (max-width: 768px) {
+/* Collapse nav to hamburger when viewport is too narrow for the full nav
+   to sit on one line without wrapping. Raised from 768px to 1024px because
+   "About Your Coach" + "Free Clarity Call" CTA made the nav wrap between
+   ~800-1000px widths, creating an ugly indent on "About". */
+@media (max-width: 1024px) {
   .nav-toggle { display: flex; }
 
   .primary-nav {
@@ -1336,6 +1386,7 @@ h6 { font-size: var(--text-lg); }
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-2);
+    white-space: normal;
   }
 
   .primary-nav.is-open { display: flex; }
@@ -1343,6 +1394,7 @@ h6 { font-size: var(--text-lg); }
   .primary-nav a {
     padding: var(--space-3) var(--space-4);
     font-size: var(--text-lg);
+    white-space: nowrap;          /* keep "About Your Coach" on one line in the hamburger menu */
   }
 }
 
@@ -2070,16 +2122,26 @@ h6 { font-size: var(--text-lg); }
    =================================================================== */
 
 .form-success-banner {
-  background-color: var(--color-mag-light-teal);
-  border: 2px solid var(--color-secondary-dark);
+  background-color: #E8F5E9;        /* soft green */
+  border: 2px solid #1B5E20;        /* deep green border — AAA contrast against dark text */
   border-radius: var(--border-radius);
   padding: var(--space-8) var(--space-10);
   margin-bottom: var(--space-8);
   text-align: center;
 }
 
+.form-success-banner::before {
+  content: "✓";
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: #1B5E20;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
 .form-success-banner p {
-  color: var(--color-primary);
+  display: inline;
+  color: #1B5E20;                   /* deep green — 9.4:1 contrast on #E8F5E9 (AAA) */
   font-size: 1.1rem;
   margin: 0;
 }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background:
+    radial-gradient(ellipse at 25% 75%, rgba(83,160,183,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(210,204,255,0.15) 0%, transparent 55%),
+    linear-gradient(135deg, #1e2d45 0%, #2A3A56 45%, #4A3B63 100%);
+  position: relative;
+}
+
+/* Subtle "ground glow" beneath Autism Man's feet — grounds him visually */
+.ground-glow {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  width: 480px;
+  height: 80px;
+  background: radial-gradient(ellipse at center, rgba(151,231,255,0.15) 0%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* Autism Man — full color, standing bottom-left.
+   Feet near bottom of frame (above Zoom name overlay box in bottom-left).
+   Body rises up through left third; head lands near vertical center-left. */
+.hero {
+  position: absolute;
+  bottom: 40px;
+  left: 80px;
+  height: 860px;
+  width: auto;
+  filter: drop-shadow(0 10px 40px rgba(0,0,0,0.5));
+  pointer-events: none;
+}
+
+/* Swooping MAG logo + butterfly-on-G — upper right, prominent brand mark */
+.logo-wrapper {
+  position: absolute;
+  top: 70px;
+  right: 110px;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+</style>
+</head>
+<body>
+  <div class="ground-glow"></div>
+  <img class="hero" src="../../Autism%20Man%20without%20BG.png" alt="" />
+  <div class="logo-wrapper">
+    <img class="logo" src="../../MAG%20Logo%20without%20BG%20(white%20text).png" alt="My Autism Gifts" />
+  </div>
+</body>
+</html>

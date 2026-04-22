@@ -876,7 +876,8 @@ All 12 Phase 1 deliverables confirmed live on Netlify staging as of April 2, 202
 
 > **Status:** To Do · Requires: all Phase 2–4 tasks complete + Rob's pending items from Phase 1 done · Needs IONOS DNS credentials
 
-- [ ] Configure Netlify form email notifications — Rob receives contact + consultation submissions by email
+- [X] Configure Netlify form email notifications — Rob receives contact + clarity call submissions by email
+  - [X] Capitalize "contact" in subject lines.
 - [ ] Pre-launch checklist: all 5 pages load, both forms submit successfully, all 4 booking links resolve, SSL active on staging
 - [ ] Coordinate DNS cutover timing with Rob (~5-min downtime window expected)
   - [ ] Change A record in IONOS DNS to point myautismgifts.com → Netlify IP

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Roboto', sans-serif;
+  background:
+    radial-gradient(ellipse at 80% 25%, rgba(151,231,255,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 90%, rgba(74,59,99,0.28) 0%, transparent 55%),
+    linear-gradient(135deg, #1e2d45 0%, #2A3A56 50%, #3d2f55 100%);
+  position: relative;
+}
+
+/* Text block — upper-right corner (per Elizabeth: "put the words in the upper right corner") */
+.text-block {
+  position: absolute;
+  top: 80px;
+  right: 100px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+.brand-name {
+  font-family: 'Vidaloka', serif;
+  font-size: 56px;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.brand-name span {
+  color: #97E7FF;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #97E7FF);
+}
+
+.role {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.95);
+}
+
+.coach-name {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 2px;
+}
+
+.contact {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+/* Swooping MAG + butterfly logo (no standalone butterfly) — bottom-right */
+.logo-anchor {
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  width: 160px;
+  height: 160px;
+  opacity: 0.92;
+}
+</style>
+</head>
+<body>
+  <div class="text-block">
+    <div class="brand-name">My Autism <span>Gifts</span></div>
+    <div class="divider"></div>
+    <div class="role">Chief Empowerment Officer</div>
+    <div class="coach-name">Rob Hodes</div>
+    <div class="contact">myautismgifts.com · info@myautismgifts.com</div>
+  </div>
+
+  <img class="logo-anchor" src="../../MAG%20Logo%20without%20BG%20(white%20text).png" alt="My Autism Gifts" />
+</body>
+</html>

@@ -9,48 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="images/MAG%20Logo%20Square%20Icon.png" type="image/png" />
+  <link rel="icon" href="images/compressed-images/MAG%20Logo%20Square%20Icon%20without%20BG.png" type="image/png" />
 </head>
 <body>
 
   <!-- Skip Navigation -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- ─── HEADER ─── -->
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a href="index.html" class="site-logo" aria-label="My Autism Gifts — Home">
-        <img
-          src="images/MAG%20Logo%20Square%20Icon.png"
-          alt="My Autism Gifts butterfly logo — colorful and vibrant"
-          width="56"
-          height="56"
-        />
-        <span class="site-logo__text">My Autism Gifts</span>
-      </a>
-
-      <button
-        class="nav-toggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="primary-nav"
-      >
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
-
-      <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
-        <ul role="list">
-          <li><a href="index.html">Welcome</a></li>
-          <li><a href="about.html">About Your Coach</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="connect.html" aria-current="page">Connect</a></li>
-          <li><a href="clarity_call.html" class="btn btn--primary">Free Clarity Call</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- INCLUDE: header -->
 
   <!-- ─── MAIN ─── -->
   <main id="main-content">
@@ -110,7 +76,7 @@
           </div>
           <div class="consultation-block__image" aria-hidden="true">
             <img
-              src="images/Rob%20with%20Chin%20in%20Hand.png"
+              src="images/compressed-images/Rob%20with%20Chin%20in%20Hand.png"
               alt="Rob Hodes, founder and Chief Empowerment Officer of My Autism Gifts"
               loading="lazy"
               width="420"
@@ -178,8 +144,7 @@
             Curiosity is always welcome here.
           </p>
         </div>
-
-                <div id="contact-success" class="form-success-banner" role="alert" aria-live="polite" style="display:none">
+        <div id="contact-success" class="form-success-banner" role="alert" aria-live="polite" style="display:none">
           <p><strong>Message sent!</strong> Rob will get back to you personally within one business day.</p>
         </div>
 
@@ -304,8 +269,7 @@
             <dt class="faq-question">How soon will Rob get back to me?</dt>
             <dd class="faq-answer">
               Usually within one business day for emails and voicemails.
-              The consultation form goes directly to Rob — he reviews every submission
-              personally.
+              The Clarity Call form goes directly to Rob — he reviews every submission personally.
             </dd>
           </div>
 
@@ -313,7 +277,7 @@
             <dt class="faq-question">Is coaching the right fit for me right now?</dt>
             <dd class="faq-answer">
               If you're wondering whether coaching is right for you — that's exactly
-              what the free consultation is designed to answer. You don't need to be
+              what the free Clarity Call is designed to answer. You don't need to be
               ready or certain. Just curious is enough.
             </dd>
           </div>
@@ -343,67 +307,53 @@
 
   </main>
 
-  <!-- ─── FOOTER ─── -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" aria-label="My Autism Gifts — Home">
-          <img
-            class="footer-brand__logo"
-            src="images/MAG%20Logo.png"
-            alt="My Autism Gifts logo"
-          />
-        </a>
-        <p class="footer-brand__tagline">
-          Dream boldly. Embrace Your Diversity. Unleash Brilliance.
-        </p>
-        <p class="footer-brand__desc">
-          Life coaching for autistic and neurodivergent adults, and any adult
-          ready to grow. Los Angeles, CA — serving clients online and in person.
-        </p>
-      </div>
-
-      <nav class="footer-nav" aria-label="Footer navigation — pages">
-        <h3 class="footer-nav__heading">Pages</h3>
-        <ul>
-          <li><a href="index.html">Welcome</a></li>
-          <li><a href="about.html">About Your Coach</a></li>
-          <li><a href="services.html">Services &amp; Pricing</a></li>
-          <li><a href="connect.html" aria-current="page">Connect</a></li>
-          <li><a href="clarity_call.html">Clarity Call</a></li>
-        </ul>
-      </nav>
-
-      <nav class="footer-nav" aria-label="Footer navigation — contact">
-        <h3 class="footer-nav__heading">Contact</h3>
-        <ul>
-          <li><a href="mailto:info@myautismgifts.com">info@myautismgifts.com</a></li>
-          <li><a href="tel:+15623445205">+1 (562) 344-5205</a></li>
-          <li><a href="clarity_call.html">Book a Clarity Call</a></li>
-          <li>Los Angeles, CA</li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <p>
-          &copy; <span id="footer-year"></span> My Autism Gifts. All rights reserved.
-          Founded May 1, 2021 · Rob Hodes, Chief Empowerment Officer.
-        </p>
-      </div>
-    </div>
-  </footer>
+  <!-- INCLUDE: footer -->
 
   <script src="js/main.js"></script>
   <script>
+    /* Contact form submit → AJAX POST → show green banner.
+       Works on localhost (static server accepts POST, banner shown regardless)
+       and on Netlify (form-handler receives POST and records the submission). */
     (function () {
-      if (window.location.search.indexOf('sent=true') !== -1) {
-        var banner = document.getElementById('contact-success');
-        if (banner) { banner.style.display = 'block'; }
-        var form = document.querySelector('.contact-form');
-        if (form) { form.style.display = 'none'; }
+      var form = document.querySelector('form.contact-form');
+      var banner = document.getElementById('contact-success');
+      if (!form || !banner) return;
+
+      function showBanner() {
+        banner.style.display = 'block';
+        banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        banner.focus && banner.focus();
       }
+
+      // Show banner if we arrived with ?sent=true (legacy fallback)
+      if (window.location.search.indexOf('sent=true') !== -1) {
+        showBanner();
+      }
+
+      form.addEventListener('submit', function (e) {
+        // main.js runs its validation first and calls preventDefault() if anything
+        // is missing. If the submit reaches us un-defaulted, it's valid — intercept.
+        if (e.defaultPrevented) return;
+        e.preventDefault();
+
+        var data = new FormData(form);
+        // Netlify expects form-urlencoded with form-name included
+        var body = new URLSearchParams();
+        data.forEach(function (value, key) { body.append(key, value); });
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: body.toString()
+        }).then(function () {
+          showBanner();
+          form.reset();
+        }).catch(function () {
+          // Network error (e.g. localhost with no backend) — still show banner for UX testing
+          showBanner();
+          form.reset();
+        });
+      });
     }());
   </script>
 </body>

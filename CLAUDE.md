@@ -159,7 +159,7 @@ All pages use `.primary-nav` + `id="primary-nav"` + `aria-controls="primary-nav"
 - **Header button contrast** fixed: `.primary-nav .btn.btn--primary` CSS specificity override added
 - **Footer logo** made responsive: `max-width: 231px; width: 100%; height: auto`
 - **Local preview workflow** established: `bash build.sh` → `npx serve dist` (saves Netlify credits)
-- **Linear task consolidation**: 5 merges saved Rob $180; 5 WP tasks canceled; MY-47 (footer) marked Done
+- **Linear task cleanup**: 5 WP-era tasks canceled (MY-35, MY-36, MY-38, MY-28, MY-6 — superseded by Netlify migration); MY-47 (footer) and MY-18 (Netlify form notifications) marked Done
 - **Task mapping spreadsheet** created: `MAG_Linear_Task_Mapping.xlsx` (3 sheets)
 - **DNS research**: Nameservers are IONOS (not GoDaddy). A record change: `74.208.236.205` → `75.2.60.5`. Email records (MX, SPF, DKIM, DMARC) unaffected.
 

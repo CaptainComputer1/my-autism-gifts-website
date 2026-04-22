@@ -9,35 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="images/MAG%20Logo%20Square%20Icon.png" type="image/png" />
+  <link rel="icon" href="images/compressed-images/MAG%20Logo%20Square%20Icon%20without%20BG.png" type="image/png" />
 </head>
 <body>
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="container">
-      <a href="index.html" class="site-logo" aria-label="My Autism Gifts — Home">
-        <img src="images/MAG%20Logo%20Square%20Icon.png" alt="My Autism Gifts butterfly logo" width="56" height="56" />
-        <span class="site-logo__text">My Autism Gifts</span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="primary-nav" id="primary-nav" role="navigation" aria-label="Main navigation">
-        <ul role="list">
-          <li><a href="index.html">Welcome</a></li>
-          <li><a href="about.html">About Your Coach</a></li>
-          <li><a href="services.html" aria-current="page">Services</a></li>
-          <li><a href="connect.html">Connect</a></li>
-          <li><a href="clarity_call.html" class="btn btn--primary">Free Clarity Call</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main-content">
+    <!-- INCLUDE: header -->
+<main id="main-content">
 
     <!-- PAGE HEADER -->
     <section class="page-header" aria-labelledby="services-heading">
@@ -57,7 +37,7 @@
         <div class="services-consult">
           <div class="services-consult__image">
             <img
-              src="images/Rob%20with%20Chin%20in%20Hand.png"
+              src="images/compressed-images/Rob%20with%20Chin%20in%20Hand.png"
               alt="Rob Hodes, autism and neurodivergent life coach, ready to help you grow"
               width="380"
               height="460"
@@ -176,27 +156,27 @@
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-          <div style="background: white; border-radius: var(--border-radius); padding: 2rem; box-shadow: var(--shadow-sm);">
-            <div style="font-family: var(--font-heading); font-size: var(--text-3xl); color: var(--color-secondary); margin-bottom: 1rem;">01</div>
-            <h3 style="font-size: var(--text-xl); margin-bottom: 1rem;">Month 1 — Foundation</h3>
-            <p style="color: var(--color-muted); font-size: var(--text-sm); line-height: 1.8;">
+        <div class="program-phases">
+          <div class="phase-card">
+            <div class="phase-card__number">01</div>
+            <h3 class="phase-card__title">Month 1 — Foundation</h3>
+            <p class="phase-card__desc">
               Communication skills, building rapport and trust, clarifying your goals,
               and establishing the foundation for the work ahead.
             </p>
           </div>
-          <div style="background: white; border-radius: var(--border-radius); padding: 2rem; box-shadow: var(--shadow-sm);">
-            <div style="font-family: var(--font-heading); font-size: var(--text-3xl); color: var(--color-secondary); margin-bottom: 1rem;">02</div>
-            <h3 style="font-size: var(--text-xl); margin-bottom: 1rem;">Month 2 — Strategy</h3>
-            <p style="color: var(--color-muted); font-size: var(--text-sm); line-height: 1.8;">
+          <div class="phase-card">
+            <div class="phase-card__number">02</div>
+            <h3 class="phase-card__title">Month 2 — Strategy</h3>
+            <p class="phase-card__desc">
               Strategy implementation, goal tracking, cultural competency,
               and building your self-advocacy toolkit.
             </p>
           </div>
-          <div style="background: white; border-radius: var(--border-radius); padding: 2rem; box-shadow: var(--shadow-sm);">
-            <div style="font-family: var(--font-heading); font-size: var(--text-3xl); color: var(--color-secondary); margin-bottom: 1rem;">03</div>
-            <h3 style="font-size: var(--text-xl); margin-bottom: 1rem;">Month 3 — Optimisation</h3>
-            <p style="color: var(--color-muted); font-size: var(--text-sm); line-height: 1.8;">
+          <div class="phase-card">
+            <div class="phase-card__number">03</div>
+            <h3 class="phase-card__title">Month 3 — Optimisation</h3>
+            <p class="phase-card__desc">
               Skill refinement, self-care and burnout prevention, comprehensive
               program review, and a forward plan for what comes next.
             </p>
@@ -233,7 +213,7 @@
       <div class="container">
         <h2 id="services-cta-heading">Still Have Questions?</h2>
         <p>
-          The free consultation is the best place to start. No forms, no pressure —
+          The free clarity call is the best place to start. No forms, no pressure —
           just a conversation about where you are and where you want to go.
         </p>
         <a href="clarity_call.html" class="btn btn--white btn--lg">Book Your Free Clarity Call</a>
@@ -243,57 +223,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" aria-label="My Autism Gifts — Home">
-          <img
-            class="footer-brand__logo"
-            src="images/MAG%20Logo.png"
-            alt="My Autism Gifts logo"
-          />
-        </a>
-        <p class="footer-brand__tagline">
-          Dream boldly. Embrace Your Diversity. Unleash Brilliance.
-        </p>
-        <p class="footer-brand__desc">
-          Life coaching for autistic and neurodivergent adults, and any adult
-          ready to grow. Los Angeles, CA — serving clients online and in person.
-        </p>
-      </div>
-
-      <nav class="footer-nav" aria-label="Footer navigation — pages">
-        <h3 class="footer-nav__heading">Pages</h3>
-        <ul>
-          <li><a href="index.html">Welcome</a></li>
-          <li><a href="about.html">About Your Coach</a></li>
-          <li><a href="services.html">Services &amp; Pricing</a></li>
-          <li><a href="connect.html">Connect</a></li>
-          <li><a href="clarity_call.html">Clarity Call</a></li>
-        </ul>
-      </nav>
-
-      <nav class="footer-nav" aria-label="Footer navigation — contact">
-        <h3 class="footer-nav__heading">Contact</h3>
-        <ul>
-          <li><a href="mailto:info@myautismgifts.com">info@myautismgifts.com</a></li>
-          <li><a href="tel:+15623445205">+1 (562) 344-5205</a></li>
-          <li><a href="clarity_call.html">Book a Clarity Call</a></li>
-          <li>Los Angeles, CA</li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <p>
-          &copy; <span id="footer-year"></span> My Autism Gifts. All rights reserved.
-          Founded May 1, 2021 · Rob Hodes, Chief Empowerment Officer.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+    <!-- INCLUDE: footer -->
+<script src="js/main.js"></script>
 </body>
 </html>
