@@ -1,13 +1,10 @@
 [build]
-  # Assembles a clean dist/ folder that Netlify serves:
-  #   - HTML pages from webpages/  →  dist/*.html  (root of site)
-  #   - CSS from css/              →  dist/css/
-  #   - Images from images/        →  dist/images/
-  #   - JS from js/                →  dist/js/
-  # This lets the repo stay organised in subfolders while all asset
-  # paths in the HTML (e.g. css/styles.css, images/MAG Logo.png)
-  # resolve correctly at runtime.
-  command = "mkdir -p dist && cp webpages/*.html dist/ && cp -r css dist/ && cp -r images dist/ && cp -r js dist/ && cp public/* dist/"
+  # Delegate the build to build.sh so Netlify and local preview stay in sync.
+  # build.sh copies webpages/, css/, images/, js/, and public/ into dist/,
+  # then runs build-partials.py which injects partials/header.html and
+  # partials/footer.html in place of the <!-- INCLUDE: … --> markers.
+  # Without the partials step, header and footer render as empty comments.
+  command = "bash build.sh"
   publish = "dist"
 
 [[headers]]
