@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Action Items — Rob &amp; Elizabeth</title>
+<style>
+  @page { size: Letter; margin: 0.75in; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+    color: #1B1C1D;
+    line-height: 1.5;
+    font-size: 10.5pt;
+  }
+  h1 {
+    color: #2A3A56;
+    border-bottom: 3px solid #4A3B63;
+    padding-bottom: 6px;
+    font-size: 22pt;
+    margin: 0 0 8px 0;
+  }
+  .subhead {
+    color: #404654;
+    margin-bottom: 24px;
+    font-size: 10pt;
+  }
+  h2 {
+    color: #4A3B63;
+    font-size: 14pt;
+    margin-top: 22px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #D2CCFF;
+  }
+  h3 {
+    color: #2A3A56;
+    font-size: 11.5pt;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+  .badge {
+    display: inline-block;
+    background: #4A3B63;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 8.5pt;
+    font-weight: 600;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .priority-top {
+    background: #53A0B7;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 12px 0;
+  }
+  .priority-top strong { color: white; }
+  ol, ul { margin: 6px 0 12px 20px; padding: 0; }
+  li { margin-bottom: 6px; }
+  .how {
+    color: #404654;
+    font-size: 9.5pt;
+    font-style: italic;
+    margin-top: 2px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 14px 0;
+    font-size: 9.5pt;
+  }
+  th, td {
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid #D2CCFF;
+    vertical-align: top;
+  }
+  th {
+    background: #F9F5FF;
+    color: #2A3A56;
+    font-weight: 600;
+  }
+  .for-rob { color: #2A3A56; font-weight: 600; }
+  .for-elizabeth { color: #4A3B63; font-weight: 600; }
+  .for-joint { color: #53A0B7; font-weight: 600; }
+  .footer {
+    margin-top: 28px;
+    padding-top: 12px;
+    border-top: 1px solid #D2CCFF;
+    font-size: 9pt;
+    color: #404654;
+  }
+</style>
+</head>
+<body>
+
+<h1>Action Items — Rob &amp; Elizabeth</h1>
+<div class="subhead">Prepared by Sean Lawrence · 2026-04-23 · Covers everything currently blocking the MAG website launch</div>
+
+<div class="priority-top">
+  <strong>Top priorities (please start here):</strong>
+  <ol style="margin: 6px 0 0 20px;">
+    <li><strong>Rob:</strong> share the mailbox passwords for <code>info@myautismgifts.com</code> and <code>rob@myautismgifts.com</code> (unblocks the broken WordPress contact-form emails — 5-minute fix once I have them).</li>
+    <li><strong>Rob:</strong> pick hero headline A / B / C from <code>MAG_Copy_Drafts.md</code>.</li>
+    <li><strong>Rob:</strong> decide on the refund / no-show policy wording for Services page.</li>
+    <li><strong>Rob:</strong> buy TidyCal Individual ($29) and choose Stripe or PayPal.</li>
+    <li><strong>Rob:</strong> approve moving the current WP site to <code>old.myautismgifts.com</code> so the main domain can be freed for Netlify.</li>
+  </ol>
+</div>
+
+<h2>For Rob — copy &amp; content decisions</h2>
+<table>
+  <thead><tr><th style="width: 80px">Task</th><th>What I need from you</th></tr></thead>
+  <tbody>
+    <tr><td>MY-43</td><td><strong>Hero headline</strong> — pick A, B, or C from <code>MAG_Copy_Drafts.md</code>. Blocks the homepage rewrite.</td></tr>
+    <tr><td>MY-49</td><td><strong>Refund + no-show policy</strong> — one short paragraph I can put on the Services page. Tell me your terms; I'll word it cleanly.</td></tr>
+    <tr><td>MY-44</td><td><strong>Testimonials</strong> — are the current ones on the site approved? Do you want Zak's removed? Any new quotes from neurodivergent clients to add?</td></tr>
+    <tr><td>MY-48</td><td><strong>Real accomplishments</strong> to replace certification-style credentials. Three or four sentences, each describing a specific client outcome (names optional).</td></tr>
+    <tr><td>MY-58</td><td><strong>Personal story expansion</strong> — a paragraph or two I can use for the trust-signal section (who you are, what led you here).</td></tr>
+    <tr><td>MY-34</td><td><strong>Body copy sign-off</strong> across all 5 pages, especially the "41 years experience" line and whether to explicitly mention ADHD.</td></tr>
+    <tr><td>MY-62</td><td><strong>Image approvals</strong> — AI-enhanced replacement photos (especially the About page portrait).</td></tr>
+  </tbody>
+</table>
+
+<h2>For Rob — accounts, credentials, infrastructure</h2>
+<table>
+  <thead><tr><th style="width: 80px">Task</th><th>What I need from you</th></tr></thead>
+  <tbody>
+    <tr><td>— urgent</td><td><strong>Mailbox passwords</strong>: <code>info@myautismgifts.com</code> and <code>rob@myautismgifts.com</code>. Save into our shared credentials doc at <code>G:\My Drive\Work\Work with Rob\MAG Documents\Rob and Elizabeth's MAG Website Credentials.docx</code>, or drop them in Signal / WhatsApp directly to me.</td></tr>
+    <tr><td>MY-55</td><td><strong>Bitwarden setup</strong> — confirm you want a shared vault under <code>myautismgifts@gmail.com</code> that you, Elizabeth, and I all have access to. Once confirmed, I'll create it and load Netlify, TidyCal, GoDaddy, and GitHub credentials.</td></tr>
+    <tr><td>MY-7</td><td><strong>Buy TidyCal Individual Plan ($29)</strong>. Once purchased, share the login in the shared vault and I'll wire it into the booking flow.</td></tr>
+    <tr><td>MY-10</td><td><strong>Stripe or PayPal?</strong> Pick one for the payment processor. I'll set it up in TidyCal once you decide.</td></tr>
+    <tr><td>MY-5</td><td>Give me UptimeRobot account access (or create a shared one). I'll add the domain monitor.</td></tr>
+    <tr><td>MY-22</td><td><strong>Netlify ownership</strong> — transfer the Netlify site to your own account, or keep it under mine with you as a collaborator admin? Either works; I just need your choice.</td></tr>
+  </tbody>
+</table>
+
+<h2>For Rob — email authentication &amp; domain</h2>
+<table>
+  <thead><tr><th style="width: 80px">Task</th><th>What I need from you</th></tr></thead>
+  <tbody>
+    <tr><td>MY-15</td><td><strong>Written approval</strong> to escalate DMARC from <code>p=none</code> → <code>p=quarantine</code> in ~2 weeks. Reply "approved" in WhatsApp — I'll make the DNS change.</td></tr>
+    <tr><td>MY-16</td><td>Same for <code>p=quarantine</code> → <code>p=reject</code> another 2 weeks after that.</td></tr>
+    <tr><td>— new</td><td><strong>Subdomain move</strong> — approve moving the current WordPress site to <code>old.myautismgifts.com</code>. It stays fully editable and reachable; it just lives on a different URL so we can point the main domain at Netlify when you're ready. "Yes" in chat is enough.</td></tr>
+    <tr><td>MY-23</td><td>Once you're happy with the live site on Netlify, tell me so I can wind down the WordPress hosting (you'll cancel Elementor Pro yourself).</td></tr>
+    <tr><td>MY-20</td><td>Approval for a ~5-minute downtime window during the apex DNS flip (whatever day is calmest for you).</td></tr>
+  </tbody>
+</table>
+
+<h2>For Rob — business &amp; legal</h2>
+<table>
+  <thead><tr><th style="width: 80px">Task</th><th>What I need from you</th></tr></thead>
+  <tbody>
+    <tr><td>MY-24</td><td>Review Change Order #1 (automated .docx generator) — approve or push back.</td></tr>
+    <tr><td>MY-25</td><td>Confirm Canva-signature workflow for signing future change orders.</td></tr>
+    <tr><td>MY-60</td><td>Get written approval from Shane for EQ3C framework use on the site.</td></tr>
+    <tr><td>MY-51</td><td>Confirm any external links you want posted on the site (TGD listing, partner links, etc.).</td></tr>
+    <tr><td>MY-32 / MY-63</td><td>Lead magnet format — quiz, PDF, or email course? And is it going through the TGD platform or standalone?</td></tr>
+  </tbody>
+</table>
+
+<h2>For Elizabeth</h2>
+<table>
+  <thead><tr><th style="width: 80px">Task</th><th>What I need from you</th></tr></thead>
+  <tbody>
+    <tr><td>MY-50</td><td>Re-confirm we're still merging the Packages page into Services (per Meeting 6). I'll hold that consolidation until you say yes.</td></tr>
+    <tr><td>MY-39</td><td>Still going with the four-layer backup plan you recommended, or updating?</td></tr>
+    <tr><td>MY-42</td><td>IONOS "keep copy + forward" configuration specifics for <code>info@</code> and <code>rob@</code>.</td></tr>
+    <tr><td>MY-60</td><td>Any update on Shane's availability for the EQ3C usage approval?</td></tr>
+    <tr><td>MY-55</td><td>Do you want access to the shared Bitwarden vault under <code>myautismgifts@gmail.com</code>?</td></tr>
+  </tbody>
+</table>
+
+<h2>Joint — discuss together</h2>
+<table>
+  <thead><tr><th style="width: 80px">Task</th><th>What to decide</th></tr></thead>
+  <tbody>
+    <tr><td>MY-52</td><td><strong>Pricing strategy</strong> — keep current low rates at launch, or move toward the $145–225/hr benchmark you discussed? This shapes the entire Services page tone.</td></tr>
+    <tr><td>MY-37</td><td><strong>Homepage segmentation</strong> — are we still going with the two-path approach (neurodivergent adults vs. allies / family members)? That shapes the whole hero rewrite.</td></tr>
+    <tr><td>MY-45 / MY-46</td><td><strong>Visual refresh scope</strong> — tackle empty blocks, background treatments, butterfly logo animation before launch, or after?</td></tr>
+    <tr><td>MY-33</td><td><strong>Hero story rewrite</strong> — tone and length. Rob's voice, Elizabeth's narrative instincts.</td></tr>
+  </tbody>
+</table>
+
+<h2>What I'm working on while you review this</h2>
+<ul>
+  <li>Finishing the DNS subdomain setup (<code>old.myautismgifts.com</code>) so the WP-to-subdomain move is ready the moment Rob gives the green light.</li>
+  <li>Simplifying the local dev workflow — removing the <code>dist/</code> folder and the confusing build step. Result: one clickable script runs the whole stack and auto-reloads on save.</li>
+  <li>Finalizing v5 Zoom backgrounds (new HTMLs + PNGs in <code>images/zoom-backgrounds/MAG Zoom BG's v5/</code>). See <code>ZOOM_BACKGROUNDS_USAGE.md</code> for which one to use when.</li>
+  <li>Recording Meeting 8 brand rules in <code>BRAND_RULES.md</code> — MAG lettering + butterfly exclusivity, color discipline, Blue Fortress = events only.</li>
+</ul>
+
+<div class="footer">
+  Linear issue identifiers in square brackets match the Linear workspace tasks. If any item above is already decided, reply to me with "MY-XX done, [answer]" and I'll log it and move on. The fastest unblocks for me right now are the mailbox passwords and the hero headline pick — everything else can wait a day or two without stalling the launch.
+</div>
+
+</body>
+</html>

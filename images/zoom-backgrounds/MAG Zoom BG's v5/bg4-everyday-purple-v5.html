@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  /* Light purple per Meeting 8 (was dark purple in v3) */
+  background:
+    radial-gradient(ellipse at 20% 15%, rgba(255,255,255,0.40) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(151,231,255,0.18) 0%, transparent 60%),
+    linear-gradient(155deg, #F9F5FF 0%, #D2CCFF 50%, #BFB6F5 100%);
+  position: relative;
+}
+
+/* MAG logo — upper-left per Meeting 8 signature placement */
+.logo-anchor {
+  position: absolute;
+  top: 70px;
+  left: 90px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+</style>
+</head>
+<body>
+  <img class="logo-anchor" src="../../original-images-unused/MAG%20Logo%20without%20BG.png" alt="My Autism Gifts" />
+</body>
+</html>

@@ -2,16 +2,12 @@
   "name": "mag-website-dev",
   "private": true,
   "version": "0.0.0",
-  "description": "Local dev tooling for the My Autism Gifts static site. Netlify builds from build.sh directly and ignores this file.",
+  "description": "Local dev tooling for the My Autism Gifts static site. Netlify publishes from repo root directly — no build step.",
   "scripts": {
-    "build": "bash build.sh",
-    "serve": "browser-sync start --server dist --files \"dist/**/*\" --no-notify --no-open --port 3000",
-    "watch": "chokidar \"webpages/**/*\" \"css/**/*\" \"js/**/*\" \"partials/**/*\" \"images/**/*\" \"build-partials.py\" \"build.sh\" -c \"bash build.sh\"",
-    "dev": "npm run build && concurrently -n watch,serve -c blue,green \"npm run watch\" \"npm run serve\""
+    "dev": "browser-sync start --server . --files \"*.html\" \"css/**/*\" \"js/**/*\" \"partials/**/*\" \"images/**/*\" --no-notify --port 3000 --ignore node_modules --ignore .git --ignore dist --ignore .claude --ignore \"Python Scripts\" --ignore \"JavaScript Scripts\""
   },
   "devDependencies": {
     "browser-sync": "^3.0.2",
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^9.0.1"
+    "puppeteer": "^23.11.0"
   }
 }

@@ -71,7 +71,10 @@
       "Bash(npx browser-sync *)",
       "Bash(npx chokidar *)",
       "Bash(npx concurrently *)",
-      "Bash(npx serve *)"
+      "Bash(npx serve *)",
+      "Bash(node render-v5.js)",
+      "mcp__7ea6d0ff-24c0-484c-aa68-b89219d54c8c__save_comment",
+      "Bash(node render-actions-pdf.js)"
     ]
   }
 }

@@ -18,5 +18,5 @@ npm-debug.log*
 *.bak
 *.swp
 
-# Netlify build output (assembled by build command, not stored in repo)
+# Legacy dist output (pre-flatten, no longer produced)
 dist/
