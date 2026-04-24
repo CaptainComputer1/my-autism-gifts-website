@@ -28,13 +28,13 @@ body {
   pointer-events: none;
 }
 
-/* Autism Man — moved FURTHER LEFT per Sean's directive: cape just touches left edge.
-   v3 used left: 80px; v5 uses left: -120px so cape (the leftmost part of the PNG)
-   grazes x=0. height unchanged at 860px. */
+/* Autism Man — positioned so he is FULLY visible on the left side with breathing room.
+   v3 used left: 80px; v5.0 used left: -120px (cape clipped); v5.1 uses left: 40px so
+   the entire figure (cape included) sits inside the frame with a small left margin. */
 .hero {
   position: absolute;
   bottom: 40px;
-  left: -120px;
+  left: 40px;
   height: 860px;
   width: auto;
   filter: drop-shadow(0 10px 40px rgba(0,0,0,0.35));
