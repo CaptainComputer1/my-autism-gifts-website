@@ -44,11 +44,16 @@ npm run dev      # equivalent to double-clicking start.bat (run this in Git Bash
 
 ## Deployment
 
-Connected to Netlify's Personal Plan. Every push to `main` triggers an automatic deploy.
+Connected to Netlify's Personal Plan. Every push to `main` triggers an automatic deploy that consumes Netlify build credits.
+
+> **⚠️ Push only when Sean explicitly says to.** Commits are free — push them whenever. But `git push` costs Netlify build credits, so it is Sean-initiated only. Claude (or any collaborator) should commit often locally and wait for an explicit "push it / deploy / ship" instruction before pushing.
 
 ```bash
+# Normal flow — do this as often as you like:
 git add .
 git commit -m "Your change description"
+
+# Only when Sean says to push:
 git push
 ```
 
