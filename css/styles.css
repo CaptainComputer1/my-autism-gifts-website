@@ -643,7 +643,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .path-card:hover {
-  border-color: var(--color-secondary);
+  border-color: var(--color-secondary-dark); /* AAA-aligned border (was --color-secondary 2.97:1) */
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
 }
@@ -827,7 +827,7 @@ h6 { font-size: var(--text-lg); }
 }
 
 .pricing-card--popular {
-  border-color: var(--color-secondary);
+  border-color: var(--color-secondary-dark); /* AAA-aligned border (was --color-secondary 2.97:1 vs white, just under 3:1 SC 1.4.11) */
   box-shadow: var(--shadow-md);
 }
 
@@ -841,7 +841,7 @@ h6 { font-size: var(--text-lg); }
   top: -14px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary-dark); /* AAA 7.88:1 (was --color-secondary 2.97:1) */
   color: var(--color-white);
   font-size: var(--text-xs);
   font-weight: 500;
@@ -928,7 +928,7 @@ h6 { font-size: var(--text-lg); }
 .phase-card__number {
   font-family: var(--font-heading);
   font-size: var(--text-3xl);
-  color: var(--color-secondary);
+  color: var(--color-secondary-dark); /* AAA 7.88:1 on white (was --color-secondary 2.97:1) */
   line-height: 1;
 }
 
@@ -1546,7 +1546,7 @@ h6 { font-size: var(--text-lg); }
   justify-content: center;
   width: 24px;
   height: 24px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary-dark); /* AAA 7.88:1 vs white (was --color-secondary 2.97:1) */
   color: var(--color-white);
   border-radius: 50%;
   font-size: var(--text-sm);
@@ -1988,7 +1988,7 @@ h6 { font-size: var(--text-lg); }
   justify-content: center;
   width: 48px;
   height: 48px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary-dark); /* AAA 7.88:1 vs white (was --color-secondary 2.97:1) */
   color: var(--color-white);
   border-radius: 50%;
   font-family: var(--font-heading);
