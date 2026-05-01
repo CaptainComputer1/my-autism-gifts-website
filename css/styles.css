@@ -1028,6 +1028,10 @@ h6 { font-size: var(--text-lg); }
 }
 
 .footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px; /* WCAG 2.5.5 AAA target size — mobile tap target (MY-47) */
+  padding-block: var(--space-2);
   color: rgba(255,255,255,0.82);
   font-size: var(--text-sm);
   transition: color var(--transition);
@@ -1435,6 +1439,10 @@ h6 { font-size: var(--text-lg); }
 }
 
 .footer-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px; /* WCAG 2.5.5 AAA target size — mobile tap target (MY-47) */
+  padding-block: var(--space-2);
   color: rgba(255,255,255,0.82);
   font-size: var(--text-sm);
   transition: color var(--transition);
