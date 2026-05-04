@@ -1,0 +1,71 @@
+<!-- WAITING-LIST FORM — MY-67
+     Shown only when <body class="capacity-closed"> is set (via .capacity-show class).
+     Netlify Forms detects the form at deploy time (name="waitlist").
+     Submissions go to the same notification email as the contact form (info@myautismgifts.com).
+     See MAG Documents/Reports/Internal-Notes/Capacity-Toggle-Runbook.md -->
+
+<section class="section capacity-show" id="waitlist" aria-labelledby="waitlist-heading">
+  <div class="container text-center">
+    <form
+      class="waitlist-form"
+      name="waitlist"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/connect.html?waitlisted=true"
+      aria-label="Waiting list form"
+    >
+      <!-- Honeypot for spam bots (hidden) -->
+      <p class="sr-only">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+
+      <h2 class="waitlist-form__heading" id="waitlist-heading">Join the Waiting List</h2>
+      <p class="waitlist-form__intro">
+        Coach Rob is currently at full capacity with his coaching clients.
+        Leave your details below and you'll be the first to know when new enrollment opens up.
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="waitlist-name">Your name <span class="required-mark" aria-hidden="true">*</span></label>
+        <input
+          class="form-input"
+          type="text"
+          id="waitlist-name"
+          name="name"
+          required
+          autocomplete="name"
+          placeholder="First and last name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="waitlist-email">Email address <span class="required-mark" aria-hidden="true">*</span></label>
+        <input
+          class="form-input"
+          type="email"
+          id="waitlist-email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="waitlist-message">Anything you'd like Rob to know? <span class="optional-mark">(optional)</span></label>
+        <textarea
+          class="form-input"
+          id="waitlist-message"
+          name="message"
+          rows="3"
+          placeholder="What are you looking for help with?"
+        ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--lg" style="width:100%; margin-top: var(--space-4);">
+        Join the Waiting List
+      </button>
+    </form>
+  </div>
+</section>

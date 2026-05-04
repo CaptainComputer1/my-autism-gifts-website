@@ -2126,6 +2126,126 @@ h6 { font-size: var(--text-lg); }
 
 
 /* ===================================================================
+   CAPACITY BANNER (MY-67 — "Not Accepting New Clients")
+   Toggled on/off by adding/removing the .capacity-closed class on <body>.
+   When body.capacity-closed is present:
+     - The .capacity-banner shows
+     - .capacity-hide elements are hidden (booking CTAs, Clarity Call form)
+     - .capacity-show elements become visible (waiting-list form)
+   =================================================================== */
+
+.capacity-banner {
+  display: none;                       /* hidden by default */
+  background-color: var(--color-mag-light-purple);
+  border-bottom: 2px solid var(--color-accent);
+  padding: var(--space-4) var(--space-6);
+  text-align: center;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 99;
+}
+
+body.capacity-closed .capacity-banner {
+  display: block;
+}
+
+.capacity-banner__text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-primary);          /* #2A3A56 — 11.05:1 on #F9F5FF (AAA) */
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.capacity-banner__date {
+  font-weight: 700;
+  color: var(--color-accent);           /* #4A3B63 — 9.15:1 on #F9F5FF (AAA) */
+}
+
+.capacity-banner__cta {
+  display: inline-block;
+  margin-top: var(--space-2);
+  font-weight: 500;
+  color: var(--color-secondary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Hide booking CTAs when at capacity */
+body.capacity-closed .capacity-hide {
+  display: none !important;
+}
+
+/* Show waiting-list elements only when at capacity */
+.capacity-show {
+  display: none;
+}
+body.capacity-closed .capacity-show {
+  display: block;
+}
+
+/* Waiting-list form (compact — name + email + optional message) */
+.waitlist-form {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-8);
+  max-width: 540px;
+  margin: var(--space-8) auto;
+}
+
+.waitlist-form__heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.waitlist-form__intro {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  text-align: center;
+  margin-bottom: var(--space-6);
+  line-height: 1.7;
+}
+
+.waitlist-form .form-group {
+  margin-bottom: var(--space-4);
+}
+
+.waitlist-form .form-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.waitlist-form .form-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  transition: border-color var(--transition);
+}
+
+.waitlist-form .form-input:focus {
+  border-color: var(--color-secondary-dark);
+  outline: 3px solid rgba(20, 88, 111, 0.15);
+  outline-offset: 0;
+}
+
+.waitlist-form textarea.form-input {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* ===================================================================
    FORM SUCCESS BANNER
    =================================================================== */
 
