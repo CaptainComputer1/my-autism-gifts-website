@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "browser-sync start --server . --files \"*.html\" \"css/**/*\" \"js/**/*\" \"partials/**/*\" \"images/**/*\" --no-notify --port 3000 --ignore node_modules --ignore .git --ignore dist --ignore .claude --ignore \"Python Scripts\" --ignore \"JavaScript Scripts\""
   },
+  "dependencies": {
+    "resend": "^4.8.0"
+  },
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "puppeteer": "^23.11.0"

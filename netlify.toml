@@ -2,8 +2,14 @@
   # Flat repo — HTML files live at root, no build step needed.
   # Cleanup command runs in Netlify's build environment to strip dev-only files
   # so they don't ship to the CDN. Local repo is untouched.
-  command = "rm -rf node_modules dist 'JavaScript Scripts' 'Python Scripts' elementor-templates-2026-04-02 *.py *.sh *.bat *.xlsx MAG_Task_List_Context.md PUSH-TO-GITHUB.md CLAUDE.md BRAND_RULES.md ZOOM_BACKGROUNDS_USAGE.md ROB_AND_ELIZABETH_ACTIONS.* .claude recolor-*.js render-*.js contrast-audit.js || true"
+  # Note: `netlify/` is preserved — it holds the submission-created function (MY-71).
+  command = "rm -rf dist 'JavaScript Scripts' 'Python Scripts' elementor-templates-2026-04-02 *.py *.sh *.bat *.xlsx MAG_Task_List_Context.md PUSH-TO-GITHUB.md CLAUDE.md BRAND_RULES.md ZOOM_BACKGROUNDS_USAGE.md ROB_AND_ELIZABETH_ACTIONS.* .claude recolor-*.js render-*.js contrast-audit.js || true"
   publish = "."
+
+[functions]
+  # MY-71: submission-created.mjs sends user confirmation emails via Resend.
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
 
 [[headers]]
   for = "/*"
