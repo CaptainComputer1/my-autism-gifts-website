@@ -34,13 +34,13 @@ const templates = {
     ),
   }),
 
-  consultation: (name) => ({
-    subject: 'Your free consultation request is in',
-    text: `${greeting(name)}\n\nThank you for sharing your story. Rob has received your intake and reads every one personally.\n\nHe'll be in touch within one business day to confirm your free consultation. If you'd like to lock in a time right now, you can also book directly at https://myautismgifts.com/clarity_call.html.${FOOTER_TEXT}`,
+  clarity_call: (name) => ({
+    subject: 'Your free Clarity Call request is in',
+    text: `${greeting(name)}\n\nThank you for sharing your story. Rob has received your intake and reads every one personally.\n\nHe'll be in touch within one business day to confirm your free Clarity Call. If you'd like to lock in a time right now, you can also book directly at https://myautismgifts.com/clarity_call.html.${FOOTER_TEXT}`,
     html: wrap(
       `<p>${greeting(name)}</p>
        <p>Thank you for sharing your story. Rob has received your intake and reads every one personally.</p>
-       <p>He'll be in touch within one business day to confirm your free consultation. If you'd like to lock in a time right now, you can also <a href="https://myautismgifts.com/clarity_call.html" style="color:#0d7c8b;">book directly here</a>.</p>`
+       <p>He'll be in touch within one business day to confirm your free Clarity Call. If you'd like to lock in a time right now, you can also <a href="https://myautismgifts.com/clarity_call.html" style="color:#0d7c8b;">book directly here</a>.</p>`
     ),
   }),
 
