@@ -1,4 +1,9 @@
-import { Resend } from 'resend';
+// Event-triggered Netlify Function — fires on every form submission.
+// Sends a per-form confirmation email to the submitter via Resend.
+// Existing admin notification (separate Netlify Forms feature) is untouched.
+// CommonJS chosen over ESM for maximum compatibility with Netlify event-triggered functions.
+
+const { Resend } = require('resend');
 
 let resendClient;
 const getResend = () => {
@@ -50,11 +55,14 @@ const templates = {
   }),
 };
 
-export const handler = async (event) => {
+exports.handler = async (event) => {
+  console.log('[submission-created] handler invoked');
+
   let payload;
   try {
     ({ payload } = JSON.parse(event.body));
-  } catch {
+  } catch (err) {
+    console.error('[submission-created] failed to parse event.body:', err?.message);
     return { statusCode: 200 };
   }
 
@@ -63,21 +71,36 @@ export const handler = async (event) => {
   const email = (data.email || '').trim();
   const name = (data.name || '').trim();
 
-  if (!email || !templates[formName]) return { statusCode: 200 };
+  console.log('[submission-created] form_name:', formName, 'email:', email, 'has_template:', !!templates[formName]);
+
+  if (!email) {
+    console.log('[submission-created] skipping: no email in submission');
+    return { statusCode: 200 };
+  }
+  if (!templates[formName]) {
+    console.log('[submission-created] skipping: no template for form_name:', formName);
+    return { statusCode: 200 };
+  }
+
+  if (!process.env.RESEND_API_KEY) {
+    console.error('[submission-created] FATAL: RESEND_API_KEY env var is not set');
+    return { statusCode: 200 };
+  }
 
   const tmpl = templates[formName](name);
 
   try {
-    await getResend().emails.send({
+    const result = await getResend().emails.send({
       from: FROM,
       to: email,
-      reply_to: REPLY_TO,
+      replyTo: REPLY_TO,
       subject: tmpl.subject,
       html: tmpl.html,
       text: tmpl.text,
     });
+    console.log('[submission-created] Resend send result:', JSON.stringify(result));
   } catch (err) {
-    console.error('[submission-created] Resend failed:', err?.message || err);
+    console.error('[submission-created] Resend FAILED:', err?.message || err, JSON.stringify(err));
   }
 
   return { statusCode: 200 };
