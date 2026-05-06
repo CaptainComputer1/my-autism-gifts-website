@@ -74,7 +74,26 @@
       "Bash(npx serve *)",
       "Bash(node render-v5.js)",
       "mcp__7ea6d0ff-24c0-484c-aa68-b89219d54c8c__save_comment",
-      "Bash(node render-actions-pdf.js)"
+      "Bash(node render-actions-pdf.js)",
+      "mcp__ionos__list_dns_zones",
+      "mcp__ionos__get_dns_zone",
+      "mcp__ionos__update_dns_zone",
+      "Bash(python -c \"import PyPDF2; r = PyPDF2.PdfReader\\(r'G:/My Drive/Work/Work with Rob/MAG Documents/Reports/MAG_Copy_Drafts.pdf'\\); print\\(f'pages={len\\(r.pages\\)}'\\)\")",
+      "Bash(python -c \"from pypdf import PdfReader; r = PdfReader\\(r'G:/My Drive/Work/Work with Rob/MAG Documents/Reports/MAG_Copy_Drafts.pdf'\\); print\\(f'pages={len\\(r.pages\\)}'\\)\")",
+      "Read(//g/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/**)",
+      "Bash(python -m yt_dlp -x --audio-format mp3 -o \"austin_coldiron_storytelling.%\\(ext\\)s\" \"https://www.youtube.com/watch?v=wQJPWjxhTf4\")",
+      "mcp__whisper__compress_audio",
+      "Bash(ffmpeg -i \"G:/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/austin_coldiron_storytelling.mp3\" -ac 1 -ar 16000 -b:a 32k \"G:/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/austin_coldiron_storytelling_small.mp3\" -y)",
+      "mcp__whisper__transcribe_audio",
+      "Bash(ffmpeg -i \"G:/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/austin_coldiron_storytelling.mp3\" -ac 1 -ar 22050 -b:a 32k -codec:a libmp3lame \"G:/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/austin_coldiron_storytelling_v2.mp3\" -y)",
+      "Bash(ffprobe -v error -show_streams \"G:/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/Meeting6_part_000.mp3\")",
+      "Bash(ffprobe -v error -show_streams \"G:/My Drive/Work/Work with Rob/MAG Meetings/MAG Meeting Audio Files/austin_coldiron_storytelling_v2.mp3\")",
+      "Bash(ffmpeg -i austin_coldiron_storytelling.mp3 -ac 1 -ar 16000 -b:a 32k -f segment -segment_time 900 -reset_timestamps 1 austin_coldiron_part_%03d.mp3 -y)",
+      "Read(//g/My Drive/Work/Helpful Files for All Work/**)",
+      "Bash(mkdir -p \"G:/My Drive/Work/Helpful Files for All Work\")",
+      "Bash(node render-storytelling-pdf.js)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Add storytelling application: site copy rewrites + Kit deferral analysis *)"
     ]
   }
 }

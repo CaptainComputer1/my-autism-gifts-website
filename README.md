@@ -72,9 +72,16 @@ Netlify's build command (`netlify.toml`) publishes the repo root directly — no
 
 ---
 
+## Linear status workflow
+
+When tickets are worked on for this repo, Claude only ever takes them to **In Review**. Sean reviews with Rob, then moves to **Done, Awaiting Payment**. Once Rob has actually paid, the ticket moves to **Done, Paid**. Claude must never set `Done, Paid` (or `Done, Awaiting Payment`) directly — those two transitions are owned by the human review/payment loop. Status IDs (My-autism-gifts team): In Review `a642f451-e6ed-4b68-a8f0-c4860585fa11`, Done Awaiting Payment `53e49b02-89e3-4555-bfab-72b9d9e0a3eb`, Done Paid `64aa7a25-c013-4087-9080-7d33381af71b`.
+
+---
+
 ## Accessibility
 
-- **WCAG AAA** colour contrast (≥7:1) on all text/interactive elements — verified April 10, 2026
+- **WCAG AAA** colour contrast (≥7:1) on all text/interactive elements — verified April 10, 2026 + re-verified April 30, 2026 (commit `02a9cc8` closing the F1–F6 token-pair gap)
+- Footer nav tap targets ≥48px (commit `4ac061c`)
 - Skip-to-main-content link on every page
 - All images have descriptive `alt` text
 - Keyboard-navigable with visible focus rings
@@ -86,9 +93,13 @@ Netlify's build command (`netlify.toml`) publishes the repo root directly — no
 
 ## Brand
 
+- **Authoritative reference:** `G:\My Drive\Work\Work with Rob\MAG Documents\Brand\MAG_Brand_Bible_v1.pdf` (Brand Bible v1.0, April 15, 2026) — single source of truth for voice, packages, and visual identity
 - **Primary:** `#2A3A56` (navy) | **Accent:** `#4A3B63` (purple) | **Teal text:** `#14586f` (AAA 7.91:1) | **Teal decorative:** `#53A0B7`
 - **Headings:** Vidaloka | **Body:** Roboto
 - Voice: warm, empowering, strengths-based, first-person authentic
+- **CTA language:** "Book Your Free Clarity Call" — never "Free Consultation"
+- **Package names** (Brand Bible § 12 + live `myautismgifts.com/services/`): Free Clarity Call · Starter ($75/session) · Standard ($130/mo) · Committed ($200/mo) · VIP 3-Month ($480 total)
+- **Imagery rule:** butterfly only, never puzzle piece (Brand Bible § 11)
 - Brand rules live in `BRAND_RULES.md` (MAG lettering/butterfly exclusivity, color discipline, event-variant rules)
 - Zoom background usage guide: `ZOOM_BACKGROUNDS_USAGE.md`
 

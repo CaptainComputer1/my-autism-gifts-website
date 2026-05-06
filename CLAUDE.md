@@ -1,169 +1,104 @@
 # CLAUDE.md — MAG Website Dev
 
-> **Read this at the start of every session before touching any file.**
+> **Read this first in any session.** Per Simon Scrapes' Level-2 memory pattern: this file is a small TOC; deep reference lives in the memory tree at `G:\My Drive\Work\Work with Rob\.claude\memory\` (auto-loaded via the project SessionStart hook).
 
 ---
 
-## What This Project Is
+## Table of Contents
 
-A static HTML/CSS/JS website for **My Autism Gifts** — Rob Hodes' autism and neurodivergent life coaching practice. This is the **development replica** of myautismgifts.com, built to be edited locally and deployed to production via GitHub → Netlify.
-
-- **Live site:** https://myautismgifts.com (WordPress/Elementor — still live during transition)
-- **Dev repo:** https://github.com/CaptainComputer1/my-autism-gifts-website
-- **Netlify project:** `my-autism-gifts` (my-autism-gifts.netlify.app) — My Autism Gifts' account, connected to GitHub
-- **Local dev server:** `npx serve .` from this folder → http://localhost:PORT
+1. [Project Snapshot](#1--project-snapshot)
+2. [File Layout](#2--file-layout) (one-liner — full layout in `domain/static-site.md`)
+3. [Working Guidelines](#3--working-guidelines) — push policy, Linear status workflow, brand voice
+4. [Where to Find Deep Reference](#4--where-to-find-deep-reference) — points at memory tree + reports
+5. [Known Pending Items](#5--known-pending-items)
 
 ---
 
-## File Layout
+## 1 — Project Snapshot
+
+A static HTML/CSS/JS website for **My Autism Gifts** — Rob Hodes' autism and neurodivergent life coaching practice. This is the **development replica** of `myautismgifts.com`, edited locally and deployed via GitHub → Netlify.
+
+| Resource | URL / Path |
+|---|---|
+| Live site (transitioning) | https://myautismgifts.com (WordPress / Elementor) |
+| Dev repo | https://github.com/CaptainComputer1/my-autism-gifts-website |
+| Netlify project | `my-autism-gifts` (`my-autism-gifts.netlify.app`) — connected to GitHub |
+| Local preview | `bash build.sh && npx serve dist` (saves Netlify build credits — see Working Guideline #3) |
+
+---
+
+## 2 — File Layout
 
 ```
-MAG Website Dev/
-├── webpages/
-│   ├── index.html          Homepage (hero, welcome, two-path, values, testimonials, CTA)
-│   ├── about.html          About Your Coach (Rob's story, stats, CTA)
-│   ├── services.html       Services & Pricing (4 packages, 3-month VIP, objection-handling)
-│   ├── connect.html        Connect (consultation block, contact cards, contact form, FAQ)
-│   └── consultation.html   Client Intake Form (11 warm questions, "Send My Story →")
-├── css/
-│   └── styles.css          Full design system (~1900 lines — all brand tokens, all components)
-├── js/
-│   └── main.js             Mobile nav toggle, footer year, form validation, header scroll shadow
-├── images/                 ✅ Local images (downloaded from WordPress — no longer WP-dependent)
-│   ├── MAG Logo Square Icon.png
-│   ├── MAG Logo.jpeg
-│   ├── MAG Hero Image.png
-│   ├── Rob with Chin in Hand.png   (index hero, services, connect)
-│   ├── Rob with Black Suit Jacket.png  (about page)
-│   ├── Rob's White Shirt Image.png     (unused — available)
-│   ├── Happy Woman Image.png           (unused — available)
-│   ├── Frustrated Man Image.png        (unused — available)
-│   └── New Skills Image.jpeg    (unused — available)
-├── public/
-│   ├── robots.txt
-│   └── sitemap.xml
-├── elementor-templates-2026-04-02/   Elementor JSON backups (10 templates)
-├── JavaScript Scripts/
-│   └── create_migration_doc.js
-├── Python Scripts/
-│   ├── check_navs.py
-│   ├── patch_nav_fix.py
-│   ├── patch_netlify_forms.py
-│   ├── patch_rename_intake.py
-│   └── patch_wcag_aaa.py
-├── netlify.toml
-├── PUSH-TO-GITHUB.md
-├── .gitignore
-├── README.md
-└── CLAUDE.md           ← you are here
+webpages/        5 HTML pages — index, about, services, connect, clarity_call
+partials/        header.html + footer.html (injected client-side)
+css/styles.css   ~2150 lines — all brand tokens in :root, all components
+js/              main.js, partials.js
+images/          local images (no longer WordPress-dependent)
+elementor-templates-2026-04-02/   16 JSON exports — see domain/static-site.md
+build.sh         Local-preview pipeline → dist/
+netlify.toml
+PUSH-TO-GITHUB.md
 ```
 
----
-
-## Brand Tokens (from Elementor site-settings.json, 2026-03-31 backup)
-
-| Token | Value | Use |
-|-------|-------|-----|
-| `--color-primary` | `#2A3A56` | Navy — headings, nav bg |
-| `--color-secondary` | `#53A0B7` | Teal — links, decorative accents |
-| `--color-accent` | `#4A3B63` | Deep purple — primary CTAs |
-| `--color-text` | `#1B1C1D` | Near-black body copy |
-| `--color-mag-purple` | `#D2CCFF` | Soft purple — card bg |
-| `--color-mag-teal` | `#97E7FF` | Light teal — hero label, highlights |
-| `--color-mag-light-purple` | `#F9F5FF` | Very light purple — section bg |
-| `--color-mag-light-teal` | `#E0F8FF` | Very light teal — section bg |
-| `--color-mag-gray-teal` | `#DEEAFF` | Pale blue-grey — subtle bg |
-| `--font-heading` | Vidaloka | Google Fonts serif |
-| `--font-body` | Roboto | Google Fonts sans-serif |
+Full layout, image inventory, and the 16 Elementor template descriptions live in `G:\My Drive\Work\Work with Rob\.claude\memory\domain\static-site.md`.
 
 ---
 
-## Image Assets (✅ local — no longer loading from WordPress)
+## 3 — Working Guidelines
 
-All images are now stored locally in the `images/` folder and referenced via relative paths in HTML (e.g. `images/MAG%20Logo%20Square%20Icon.png`).
-
-| File | Used In | Purpose |
-|------|---------|---------|
-| `MAG Logo Square Icon.png` | All pages (nav + footer) | Primary square logo |
-| `MAG Logo.jpeg` | Backup | Old rectangular logo |
-| `MAG Hero Image.png` | index.html | Hero background / Rob hero image |
-| `Rob with Chin in Hand.png` | index, services, connect | Rob portrait (welcome & consult blocks) |
-| `Rob with Black Suit Jacket.png` | about.html | Rob portrait (about page) |
-| `Rob's White Shirt Image.png` | — | Available, not yet placed |
-| `Happy Woman Image.png` | — | Available, not yet placed |
-| `Frustrated Man Image.png` | — | Available, not yet placed |
-| `New Skills Image.jpeg` | — | Available, not yet placed |
-
-**Note on paths:** HTML files in `webpages/` reference images as `images/[filename]` (no `../` prefix). This works because the site is served from the root directory.
+1. **Read this file + the SessionStart-loaded `memory.md` first** in any new session.
+2. **WCAG AAA required (≥7:1)** on all text/background combos — never introduce a new color without verifying. Full token table + verified ratios live in `memory/domain/static-site.md`.
+3. **Local preview workflow** — `bash build.sh && npx serve dist` (or `npm run dev` for browser-sync) — saves ~16 Netlify credits per test deploy.
+4. **🚫 NEVER push to GitHub without Sean's explicit permission.** Every push triggers a Netlify deploy that consumes paid build credits. Commit freely and often locally — commits are free; pushes are not. Wait for Sean's explicit "push it" / "deploy" / "ship" before `git push`.
+5. **Commit after each meaningful change** — `git add [specific files] && git commit -m "description"`. Pile commits up locally until Sean gives the push signal.
+6. **CTA language: "Free Clarity Call"** (never "Free Consultation", never "Contact"). Per Elizabeth's 4/15/2026 + 4/27/2026 decisions. All CTA buttons say "Book Your Free Clarity Call" or "Schedule Your Free Clarity Call".
+7. **Brand voice: warm, empowering, strengths-based.** No clinical language, no pity framing. Full guide in `memory/domain/brand.md` + `MAG Documents/Brand/MAG_Brand_Bible_v1.pdf` (read §§1–5, 12, 18 before any client-facing copy).
+8. **Rob's decisions pending** — never publish anything marked "Rob to decide" without his confirmation.
+9. **Linear status workflow + state IDs:** see `memory/domain/linear-workflow.md`. Claude moves tickets to **In Review** when work is done; Sean handles Done, Awaiting Payment and Done, Paid transitions.
+10. **Linear is the single source of truth for project tasks** — meeting decisions go straight into Linear (new ticket or appended checkboxes), not into intermediary "proposed changes" or "WhatsApp draft" MD files. Deliverables live in `MAG Documents/`. Task-staging docs do not. See `MAG Documents/Reports/Internal-Notes/Workflow-Policy.md`.
+11. **Update this file at session end** if anything fundamental changed; record completed items in `memory/domain/static-site.md` "Recent work history".
 
 ---
 
-## Navigation Class Pattern
+## 4 — Where to Find Deep Reference
 
-All pages use `.primary-nav` + `id="primary-nav"` + `aria-controls="primary-nav"`. The JS in `main.js` targets `.primary-nav`. **Never rename this to `.site-nav`** — that was the old Elementor class and will break mobile nav.
+The SessionStart hook auto-loads `memory.md` as the index. Read these on demand:
+
+| Need | File |
+|---|---|
+| Full brand-token table + AAA ratios | `memory/domain/static-site.md` |
+| Image inventory + Elementor JSON descriptions | `memory/domain/static-site.md` |
+| Recent work history (newest first) | `memory/domain/static-site.md` |
+| Brand voice / package names / language guide | `memory/domain/brand.md` |
+| Calendly + SMS strategy | `memory/domain/calendly.md` |
+| Cloudflare onboarding scope | `memory/domain/cloudflare.md` |
+| DNS / SPF / DKIM / DMARC / IONOS specifics | `memory/domain/ionos.md` |
+| Linear workflow / state IDs / ticket conventions | `memory/domain/linear-workflow.md` |
+| Linear MCP gotchas | `memory/tools/linear-mcp.md` |
+| Whisper MCP + chunking guidance | `memory/tools/whisper-mcp.md` |
+| WCAG AAA contrast audit (full table) | `MAG Documents/Reports/MAG_Contrast_Audit_2026-04-30.md` |
+| Email auth handoff (live SPF/DKIM/DMARC) | `MAG Documents/Reports/MAG_Email_Auth_Handoff.md` |
+| Workflow policy (single-source-of-truth) | `MAG Documents/Reports/Internal-Notes/Workflow-Policy.md` |
+| Brand Bible | `MAG Documents/Brand/MAG_Brand_Bible_v1.pdf` |
+| DNS subdomain runbook | `DNS_SUBDOMAIN_RUNBOOK.md` (this repo) |
 
 ---
 
-## Accessibility Standards
-
-- **WCAG AAA minimum (≥7:1)** on all text/background combinations — not just AA (4.5:1)
-- `btn--teal` uses `#14586f` (7.91:1 on white — AAA compliant, updated April 10 2026)
-- Footer text: minimum `rgba(255,255,255,0.80)` on `--color-primary` bg (7.98:1 — AAA)
-- `--color-secondary-dark: #14586f` — use this for teal text links (7.91:1 on white)
-- `--color-muted: #404654` — use for muted body text (9.45:1 on white — AAA)
-- `btn--outline-white` for ghost buttons on dark hero/banner backgrounds
-- All `<img>` elements need descriptive `alt` text (see alt text guide in MAG_Copy_Drafts.md)
-- Skip link, `aria-current`, `aria-label`, `aria-expanded` patterns in place
-- `prefers-reduced-motion` respected in CSS for all animations
-- 48px minimum touch targets on all interactive elements
-
----
-
-## Known Pending Items (as of 2026-04-10)
+## 5 — Known Pending Items
 
 | Item | Status |
-|------|--------|
-| Contact/intake form backend | Netlify Forms wired (HTML attributes in place) — needs notification email configured (MY-18) |
+|---|---|
+| Contact / intake form notification | ✅ Done (MY-18, paid) — Netlify Forms → `info@myautismgifts.com` |
 | Real testimonials | Rob to provide real client quotes and photos |
-| Hero headline choice | Rob to choose from Candidates A/B/C in MAG_Copy_Drafts.md |
-| Refund/no-show policy | Rob to decide details before publishing to services page |
-| DMARC upgrade (DNS) | Escalation path: p=none → quarantine → reject as Kit builds sender reputation |
-| **DNS transfer to Netlify** | **⚠️ BLOCKED** — Nameservers are IONOS (not GoDaddy). Need IONOS access to change A record from `74.208.236.205` → `75.2.60.5`. Must configure custom domain in Netlify FIRST. |
-| Elementor update | Rob to run Elementor update in WP admin (Task 39) |
-| Kit email sending config | Rob to configure SPF/DKIM/sending domain in Kit settings (Task 40) |
-| ~~Image download~~ | ✅ **DONE** — all images downloaded and stored locally in `images/` |
-| WordPress uqokxuwa account | Sean to check wp-admin/users.php manually |
-
----
-
-## Working Guidelines
-
-1. **Always read this file first** in a new session — don't assume you remember the structure.
-2. **WCAG AAA required** — ≥7:1 contrast on all new color choices. Never introduce a new color without verifying. See verified values in the Accessibility Standards section above.
-3. **Local preview workflow** — HTML files live at the project root. Double-click `start.bat` (or run `npm run dev` in Git Bash) to launch `browser-sync` on http://localhost:3000/ with auto-reload on save. The `partials/header.html` and `partials/footer.html` are injected client-side by `js/partials.js` — no build step.
-4. **🚫 NEVER push to GitHub without Sean's explicit permission.** Every push triggers a Netlify deploy which consumes paid Netlify build credits. Commit freely and often locally — commits are free. Do not run `git push` unless Sean has said "push it", "deploy", "ship", or similar explicit go-ahead in the current turn. If in doubt, ask first. Batched commits wait in the local repo until Sean says to push.
-5. **Commit after each meaningful change**: `git add [specific files] && git commit -m "description"` — commit locally without pushing. Pile commits up safely on `main` until Sean gives the push signal.
-6. **CTA button language**: Use "Free Clarity Call" (not "Free Consultation" or "Contact"). Per Elizabeth's feedback (April 15, 2026): high-intent language converts best. All CTA buttons linking to consultation.html now use "Book Your Free Clarity Call" or "Schedule Your Free Clarity Call".
-7. **Brand voice**: warm, empowering, strengths-based. No clinical language, no pity framing. See full brand guide in `G:\My Drive\Work\Work with Rob\Claude Project Meta\MAG_Copy_Drafts.md`.
-8. **Rob's decisions pending** — do not publish anything marked "Rob to decide" without his confirmation.
-9. **Update this file at session end** — record completed items, new constraints, and current state of pending items.
-
----
-
-## Recent Work (April 15, 2026)
-
-- **Footer standardized** across all 5 pages: `footer-inner` grid, nav headings, consistent content (commit `a59fc6a`)
-- **CTA buttons renamed** from "Free Consultation" to "Free Clarity Call" per Elizabeth's feedback
-- **Testimonial carousel fix**: prevented timer accumulation causing jumpy 2-second transitions; now 5-second intervals
-- **Header text** ("My Autism Gifts") made visible on all pages (was `sr-only` on 3 pages)
-- **Header button contrast** fixed: `.primary-nav .btn.btn--primary` CSS specificity override added
-- **Footer logo** made responsive: `max-width: 231px; width: 100%; height: auto`
-- **Local preview workflow** established: `bash build.sh` → `npx serve dist` (saves Netlify credits)
-- **Linear task cleanup**: 5 WP-era tasks canceled (MY-35, MY-36, MY-38, MY-28, MY-6 — superseded by Netlify migration); MY-47 (footer) and MY-18 (Netlify form notifications) marked Done
-- **Task mapping spreadsheet** created: `MAG_Linear_Task_Mapping.xlsx` (3 sheets)
-- **DNS research**: Nameservers are IONOS (not GoDaddy). A record change: `74.208.236.205` → `75.2.60.5`. Email records (MX, SPF, DKIM, DMARC) unaffected.
-
-### Previous (April 10, 2026)
-- All CSS color combinations verified WCAG AAA (≥7:1)
-- Footer rgba white text raised to minimum 0.80–0.82
-- Linear integration: MY-5 through MY-63 cover all tasks + CO-001/CO-002
+| Hero headline choice | Rob to choose Candidate A/B/C in `MAG_Copy_Drafts.md` (MY-19 #1) |
+| Refund / no-show policy | Full lifecycle on MY-19 #3 (absorbed MY-49 on 5/1/2026) |
+| DMARC `p=quarantine` escalation | Gates: Valimail clean cycle + Kit DKIM (MY-15 / MY-29) |
+| **DNS apex flip to Netlify** | ⚠️ Blocked on Rob coordinating WP + Elementor cancellation (MY-23 / MY-27 Step 6h) |
+| Cloudflare onboarding | Pending Rob's go-ahead on MY-27 Cloudflare block |
+| **MY-64** Calendly SMS reminders + Free Clarity Call event | Backlog — pending Rob's $12 approval |
+| **MY-65** "Consultation" → "Clarity Call" rename + 301 redirect | Backlog — pending Rob's $12 approval |
+| **MY-66** Zoom BG v7 + blue-banner logo test (CO-3) | Backlog — pending Rob's $10 CO-3 signature |
+| Old WordPress retirement at `old.myautismgifts.com` | Rob coordinates cancellation (MY-23) |
+| Kit email sending config (Kit DKIM in DNS) | Pending — when Kit broadcasts go live (MY-29) |
+| WordPress `uqokxuwa` admin account | Pending Sean's manual check via wp-admin/users.php |
